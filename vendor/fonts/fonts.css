@@ -21,3 +21,11 @@
   src: url('../fonts/inter-v3-latin_cyrillic-700.woff2') format('woff2');
 
 }
+/* inter-500 - latin_cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/inter-v3-latin_cyrillic-500.woff2') format('woff2');
+
+}

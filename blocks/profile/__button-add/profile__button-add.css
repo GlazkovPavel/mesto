@@ -1,0 +1,28 @@
+.profile__button-add{
+  background-image: url(../../../images/Add\ Button.svg);
+  width: 150px;
+  height: 50px;
+  align-self: center;
+  margin: auto;
+  margin-right: 0;
+  justify-self: flex-end;
+}
+@media screen and (max-width: 879px) {
+  .profile__button-add {
+  width: 110px;
+  height: 37px; 
+  background-image: url(../../../images/Add\ Button\ \(1\).png);
+  }
+
+}
+@media screen and (max-width: 320px) {
+  .profile__button-add {
+  width: 100%;
+  height: 50px; 
+  background-image: url(../../../images/m_Add\ Button\ \(2\).png);
+  text-align: center;
+  background-repeat: no-repeat;
+
+  }
+
+}
