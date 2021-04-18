@@ -5,6 +5,7 @@
   margin-bottom: 30px;
   margin-left: 18px;
   align-self: center;
+  cursor: pointer;
 }
 .profile__button-edit:hover{
   opacity: 60%;

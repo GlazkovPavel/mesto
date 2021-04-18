@@ -16,7 +16,7 @@
       <section class="profile">
         <img class="profile__foto" src=".//images/profile.jpg">
         <div class="profile__container-text">
-          <div class="profile__title">Жак-Ив Кусто</div>
+          <div class="profile__title" >Жак-Ив Кусто</div>
           <div class="profile__subtitle">Исследователь океана</div>
         </div>
         <div class="profile__button-edit"></div>
@@ -63,7 +63,7 @@
           <li class="element">
             <img class="element__foto" src=".//images/karachaevsk.png" alt="Фотография">
             <div class="element__description">
-              <p class="element__description-text">Карачаево-Черкесияgrhdffgdkjkjkjndf</p>
+              <p class="element__description-text">Карачаево-Черкесия</p>
               <img class="element__description-like" src=".//images/Vector (1).svg" alt="Лайк">
             </div>
           </li>
@@ -74,5 +74,17 @@
       <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
   </div>
+  <div class="popup popup_opened">
+    <div class="popup__container">
+      <button class="popup__close"></button>
+      <h2 class="popup__heading">Редактировать профиль</h2>
+      <form class="popup__form">
+          <input class="popup__item popup__item-name" type="text" value="">
+          <input class="popup__item popup__item-job" type="text" value="">
+      </form>
+      <button class="popup__save" type="submit">Сохранить</button>
+    </div>
+  </div>
+  <script src="./blocks/script/index.js"></script>
 </body>
 </html>

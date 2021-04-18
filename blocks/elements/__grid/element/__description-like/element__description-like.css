@@ -3,6 +3,7 @@
   max-height: 19px;
   align-self: center;
   padding-right: 20px;
+  cursor: pointer;
 }
 .element__description-like:hover{
   opacity: 60%;

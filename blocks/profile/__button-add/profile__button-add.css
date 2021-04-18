@@ -6,6 +6,7 @@
   margin: auto;
   margin-right: 0;
   justify-self: flex-end;
+  cursor: pointer;
 }
 .profile__button-add:hover{
   opacity: 60%;
