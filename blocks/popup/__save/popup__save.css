@@ -13,3 +13,13 @@
 .popup__save:hover{
   opacity: .6;
 }
+@media(max-width: 520px){
+  .popup__save{
+    width: 83.256%;
+  }
+}
+@media(max-width: 320px){
+  .popup__form{
+    width: 238px;
+  }
+}

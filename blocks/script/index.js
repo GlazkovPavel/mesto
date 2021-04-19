@@ -27,11 +27,12 @@ let formElement = document.querySelector('.popup__form');  // Воспользу
 let nameInput = document.querySelector('.popup__item-name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector('.popup__item-job'); // Воспользуйтесь инструментом .querySelector()
 let title = document.querySelector('.profile__title');
-let description = document.querySelector('.profile__subtitle');
-function formSubmitHandler (evt) {
+let subtitle = document.querySelector('.profile__subtitle');
+
+ function formSubmitHandler (evt) {
   evt.preventDefault();
   title.textContent = nameInput.value;
-  description.textContent = jobInput.value;
+  subtitle.textContent = jobInput.value;
   
 }
-formElement.addEventListener('submit', formSubmitHandler); 
+formElement.addEventListener('click', formSubmitHandler);

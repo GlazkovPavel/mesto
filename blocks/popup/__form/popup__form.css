@@ -4,3 +4,13 @@
   max-width: 358px;
   margin: 0 auto;
 }
+@media(max-width: 520px){
+  .popup__form{
+    max-width: 83.256%;
+  }
+}
+@media(max-width: 320px){
+  .popup__form{
+    max-width: 238px;
+  }
+}
