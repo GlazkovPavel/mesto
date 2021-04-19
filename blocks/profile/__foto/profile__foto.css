@@ -3,7 +3,7 @@
   object-fit: cover;
   border-radius: 50%;
   max-width: 125px;
-  align-self: center ;
+  align-self: center;
 }
 @media (max-width: 520px){
   .profile__foto {
