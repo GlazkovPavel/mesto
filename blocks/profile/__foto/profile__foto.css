@@ -2,7 +2,7 @@
   overflow: hidden;
   object-fit: cover;
   border-radius: 50%;
-  max-width: 125px;
+  max-width: 127.5px;
   align-self: center;
 }
 @media (max-width: 520px){

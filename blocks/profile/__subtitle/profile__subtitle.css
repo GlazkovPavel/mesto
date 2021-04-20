@@ -5,6 +5,8 @@ font-weight: normal;
 font-size: 18px;
 line-height: 22px;
 color: #FFFFFF;
+margin: 0;
+padding-top: 16px;
 }
 @media screen and (max-width: 879px) {
   .profile__subtitle {

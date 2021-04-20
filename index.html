@@ -10,61 +10,60 @@
   <div class="page">
     <header class="header">
       <img class="header__logo" src="images/mesto.svg" alt="Место">
-      <div class="header__line"></div>
     </header>
     <main class="content">
       <section class="profile">
         <img class="profile__foto" src=".//images/profile.jpg" alt="Фото профиля">
         <div class="profile__container-text">
-          <div class="profile__title" >Жак-Ив Кусто</div>
-          <div class="profile__subtitle">Исследователь океана</div>
+          <h2 class="profile__title" >Жак-Ив Кусто</h2>
+          <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <div class="profile__button-edit"></div>
-        <div class="profile__button-add"></div>
+        <button class="profile__button-edit" type="button"></button>
+        <button class="profile__button-add" type="button"></button>
       </section>
                                 <!-- ceкция ELEMENTS-->
-      <section class="elements">
-        <ul class="elements__grid">
-          <li class="element">
+      <section class="element">
+        <ul class="element__grid">
+          <li class="element__container">
             <img class="element__foto" src=".//images/karachaevsk.png" alt="Фотография">
             <div class="element__description">
-              <p class="element__description-text">Карачаевск</p>
-              <img class="element__description-like" src=".//images/Vector (1).svg" alt="Лайк">
+              <h3 class="element__description-text">Карачаевск</h3>
+              <button class="element__description-like" type="button"></button>
             </div>
           </li>
-          <li class="element">
+          <li class="element__container">
             <img class="element__foto" src=".//images/elbrus.png" alt="Фотография">
             <div class="element__description">
-              <p class="element__description-text">Гора Эльбрус</p>
-              <img class="element__description-like" src=".//images/Vector (1).svg" alt="Лайк">
+              <h3 class="element__description-text">Гора Эльбрус</h3>
+              <button class="element__description-like" type="button"></button>
             </div>
           </li>
-          <li class="element">
+          <li class="element__container">
             <img class="element__foto" src=".//images/dombay.png" alt="Фотография">
             <div class="element__description">
-              <p class="element__description-text">Домбай</p>
-              <img class="element__description-like" src=".//images/Vector (1).svg" alt="Лайк">
+              <h3 class="element__description-text">Домбай</h3>
+              <button class="element__description-like" type="button"></button>
             </div>
           </li>
-          <li class="element">
+          <li class="element__container">
             <img class="element__foto" src=".//images/elbrus.png" alt="Фотография">
             <div class="element__description">
-              <p class="element__description-text">Гора Эльбрус</p>
-              <img class="element__description-like" src=".//images/Vector (1).svg" alt="Лайк">
+              <h3 class="element__description-text">Гора Эльбрус</h3>
+              <button class="element__description-like" type="button"></button>
             </div>
           </li>
-          <li class="element">
+          <li class="element__container">
             <img class="element__foto" src=".//images/dombay.png" alt="Фотография">
             <div class="element__description">
-              <p class="element__description-text">Домбай</p>
-              <img class="element__description-like" src=".//images/Vector (1).svg" alt="Лайк">
+              <h3 class="element__description-text">Домбай</h3>
+              <button class="element__description-like" type="button"></button>
             </div>
           </li>
-          <li class="element">
+          <li class="element__container">
             <img class="element__foto" src=".//images/karachaevsk.png" alt="Фотография">
             <div class="element__description">
-              <p class="element__description-text">Карачаево-Черкесия</p>
-              <img class="element__description-like" src=".//images/Vector (1).svg" alt="Лайк">
+              <h3 class="element__description-text">Карачаево-Черкесия</h3>
+              <button class="element__description-like" type="button"></button>
             </div>
           </li>
         </ul>
@@ -74,17 +73,17 @@
       <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
   </div>
-  <div class="popup popup_opened">
+  <div class="popup">
     <div class="popup__container">
-      <button class="popup__close"></button>
+      <button class="popup__close" type="button"></button>
       <h2 class="popup__heading">Редактировать профиль</h2>
-      <form class="popup__form">
-          <input class="popup__item popup__item-name" type="text" value="Жак-Ив Кусто">
-          <input class="popup__item popup__item-job" type="text" value="Исследователь океана">
+      <form class="popup__form" name="profile-name">
+          <input class="popup__item popup__item_name" type="text" name="name"  placeholder="Ваше имя">
+          <input class="popup__item popup__item_job" type="text" name="job" placeholder="Ваше призвание">
           <button class="popup__save" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
-  <script src="./blocks/script/index.js"></script>
+  <script src="./script/index.js"></script>
 </body>
 </html>

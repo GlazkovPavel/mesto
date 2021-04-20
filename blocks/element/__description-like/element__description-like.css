@@ -1,9 +1,14 @@
 .element__description-like{
-  max-width: 22px;
-  max-height: 19px;
+  width: 22px;
+  height: 19px;
   align-self: center;
   padding-right: 20px;
   cursor: pointer;
+  background: url(../../../../../images/Vector\ \(1\).svg);
+  border: none;
+  background-repeat: no-repeat;
+
+
 }
 .element__description-like:hover{
   opacity: 60%;

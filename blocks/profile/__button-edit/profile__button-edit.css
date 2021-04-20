@@ -1,25 +1,26 @@
 .profile__button-edit{
-  background-image: url(../../../images/Edit\ Button.svg);
+  background: url(../../../images/Edit_Button.svg);
   width: 24px;
   height: 24px;
   margin-bottom: 30px;
   margin-left: 18px;
   align-self: center;
   cursor: pointer;
+  border: none;
 }
 .profile__button-edit:hover{
   opacity: 60%;
 }
 @media screen and (max-width: 879px) {
   .profile__button-edit {
-    margin-bottom: 15px; 
+    margin-top: 15px; 
   }
 
 }
 @media screen and (max-width: 520px) {
   .profile__button-edit {
     align-self: flex-end;
-    background-image: url(../../../images/Edit\ Button\ \(2\).png);
+    background-image: url(../../../images/Edit_Button\(2\).png);
     width: 18px;
     height: 18px;
     margin-right: 68px;
