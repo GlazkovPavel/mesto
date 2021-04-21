@@ -4,12 +4,12 @@
   align-self: center;
   padding-right: 20px;
   cursor: pointer;
-  background: url(../../../../../images/Vector\ \(1\).svg);
+  background: url(../../../images/Vector_\(1\).svg);
   border: none;
   background-repeat: no-repeat;
 
 
 }
 .element__description-like:hover{
-  opacity: 60%;
+  opacity: 50%;
 }

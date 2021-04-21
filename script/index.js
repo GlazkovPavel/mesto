@@ -10,6 +10,15 @@ let jobInput = document.querySelector('.popup__item_job'); // Воспользу
 let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
 
+let like = document.querySelectorAll('.element__description-like');
+
+function likeActive(evnt) {
+  evnt.preventDefault();
+  like.classList.toggle('element__description-like_active');
+}
+
+like.addEventListener('click', likeActive);
+
 
 
 function openPopup(event) {
