@@ -1,6 +1,6 @@
 const openPopupButton = document.querySelector('.profile__button-edit');
 const popup = document.querySelector('.popup');
-const closePopunButton = document.querySelector('.popup__close')
+const closePopunButton = document.querySelector('.popup__close');
 
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__form');  // Воспользуйтесь методом querySelector()
@@ -10,29 +10,27 @@ let jobInput = document.querySelector('.popup__item_job'); // Воспользу
 let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
 
-let like = document.querySelectorAll('.element__description-like');
+let like = document.querySelector('.element__description-like');
 
 function likeActive(evnt) {
   evnt.preventDefault();
   like.classList.toggle('element__description-like_active');
 }
-
 like.addEventListener('click', likeActive);
-
 
 
 function openPopup(event) {
   event.preventDefault();
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
-  popup.classList.add('popup_opened');
+  popup.classList.add('popup__opened');
 }
 
 openPopupButton.addEventListener('click', openPopup);
 
 function closePopup(event) {
   event.preventDefault();
-  popup.classList.remove('popup_opened');
+  popup.classList.remove('popup__opened');
 }
 
 closePopunButton.addEventListener('click', closePopup);
