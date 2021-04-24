@@ -9,8 +9,16 @@ let nameInput = document.querySelector('#name'); // Воспользуйтесь
 let jobInput = document.querySelector('#job'); // Воспользуйтесь инструментом .querySelector()
 let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
-
 let like = document.querySelector('.element__description-like');
+
+let likeButton = document.element__container.querySelectorAll('#button')
+
+function likeActive(evnt) {
+  evnt.preventDefault();
+  like.classList.toggle('element__description-like_active')
+
+}
+likeButton.addEventListener('click', likeActive)
 
 
 function openPopup(event) {
