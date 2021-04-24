@@ -11,10 +11,16 @@
   font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif';
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 18px;
+  line-height: 22px;
   text-align: center;
 }
 .popup__save:hover{
   opacity: .8;
+}
+@media (max-width: 320px){
+  .popup__save{
+    font-size: 14px;
+    line-height: 17px; 
+  }
 }
