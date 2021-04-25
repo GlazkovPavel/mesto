@@ -9,9 +9,12 @@ let nameInput = document.querySelector('#name'); // Воспользуйтесь
 let jobInput = document.querySelector('#job'); // Воспользуйтесь инструментом .querySelector()
 let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
-let like = document.querySelector('.element__description-like');
+let like = document.querySelector('section.element ul.element__grid li.element__container div.element__description .element__description-like');
 
-let likeButton = document.element__container.querySelectorAll('#button')
+
+
+
+let likeButton = document.querySelectorAll('#button');
 
 function likeActive(evnt) {
   evnt.preventDefault();
