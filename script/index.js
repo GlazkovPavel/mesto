@@ -10,8 +10,6 @@ let jobInput = document.querySelector('#job'); // Воспользуйтесь �
 let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
 
-let like = document.querySelector('.element__description-like');
-
 
 function openPopup(event) {
   event.preventDefault();
