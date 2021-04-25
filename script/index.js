@@ -9,19 +9,14 @@ let nameInput = document.querySelector('#name'); // Воспользуйтесь
 let jobInput = document.querySelector('#job'); // Воспользуйтесь инструментом .querySelector()
 let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
-let like = document.querySelector('section.element ul.element__grid li.element__container div.element__description .element__description-like');
 
 
 
-
-let likeButton = document.querySelectorAll('#button');
-
-function likeActive(evnt) {
-  evnt.preventDefault();
-  like.classList.toggle('element__description-like_active')
-
+for (let button of document.querySelectorAll('.element__description-like')) {
+  button.addEventListener("click", function () {
+    this.classList.toggle('element__description-like_active');
+  })
 }
-likeButton.addEventListener('click', likeActive)
 
 
 function openPopup(event) {

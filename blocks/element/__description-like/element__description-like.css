@@ -7,7 +7,7 @@
   background: url(../../../images/Vector_\(1\).svg);
   border: none;
   background-repeat: no-repeat;
-
+  outline: none;
 
 }
 .element__description-like:hover{

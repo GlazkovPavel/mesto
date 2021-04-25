@@ -8,6 +8,7 @@
   justify-self: flex-end;
   cursor: pointer;
   border: none;
+  outline: none;
 }
 .profile__button-add:hover{
   opacity: 60%;
