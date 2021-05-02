@@ -24,48 +24,7 @@
                                 <!-- ceкция ELEMENTS-->
       <section class="element">
         <ul class="element__grid">
-          <li class="element__container">
-            <img class="element__foto" src=".//images/karachaevsk.png" alt="Фотография">
-            <div class="element__description">
-              <h2 class="element__description-text">Карачаевск</h2>
-              <button class="element__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="element__container">
-            <img class="element__foto" src=".//images/elbrus.png" alt="Фотография">
-            <div class="element__description">
-              <h2 class="element__description-text">Гора Эльбрус</h2>
-              <button class="element__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="element__container">
-            <img class="element__foto" src=".//images/dombay.png" alt="Фотография">
-            <div class="element__description">
-              <h2 class="element__description-text">Домбай</h2>
-              <button class="element__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="element__container">
-            <img class="element__foto" src=".//images/elbrus.png" alt="Фотография">
-            <div class="element__description">
-              <h2 class="element__description-text">Гора Эльбрус</h2>
-              <button class="element__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="element__container">
-            <img class="element__foto" src=".//images/dombay.png" alt="Фотография">
-            <div class="element__description">
-              <h2 class="element__description-text">Домбай</h2>
-              <button class="element__description-like" type="button"></button>
-            </div>
-          </li>
-          <li class="element__container">
-            <img class="element__foto" src=".//images/karachaevsk.png" alt="Фотография">
-            <div class="element__description">
-              <h2 class="element__description-text">Карачаево-Черкесия</h2>
-              <button class="element__description-like" type="button"></button>
-            </div>
-          </li>
+
         </ul>
       </section>
     </main>
@@ -84,6 +43,15 @@
       </form>
     </div>
   </div>
+  <template id="card-templete">
+    <li class="element__container">
+      <img class="element__foto" id="foto" src=" " alt="Фотография">
+      <div class="element__description">
+        <h2 class="element__description-text"></h2>
+        <button class="element__description-like" id="button" type="button"></button>
+      </div>
+    </li>
+  </template>
   <script src="./script/index.js"></script>
 </body>
 </html>
