@@ -46,7 +46,7 @@ initialCards.forEach(function(element) {
 
   cardElement.querySelector('.element__description-text').textContent = element.name;
   
-  cardElement.querySelector('.element__foto').src = element.link;
+  cardElement.querySelector('#foto').src = element.link;
 
   cardList.append(cardElement)
 
