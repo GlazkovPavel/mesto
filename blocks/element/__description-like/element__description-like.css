@@ -2,12 +2,14 @@
   width: 22px;
   height: 19px;
   align-self: center;
-  padding-right: 34px;
   cursor: pointer;
   background: url(../../../images/Vector_\(1\).svg);
   border: none;
   background-repeat: no-repeat;
   outline: none;
+  justify-self:self-end;
+  margin-right: 20px;
+  
 
 }
 .element__description-like:hover{
