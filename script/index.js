@@ -1,14 +1,22 @@
 const openPopupButton = document.querySelector('.profile__button-edit');
 const popup = document.querySelector('.popup');
 const closePopunButton = document.querySelector('.popup__close');
+const openPopupButtonAdd = document.querySelector('.profile__button-add');
+const popupAdd = document.querySelector('.popup_type_add');
+const closePopupBut = document.querySelector('.popup_close_add');
+
 
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__form');  // Воспользуйтесь методом querySelector()
+let formElementAdd = document.querySelector('.popup_form_add');
 // Находим поля формы в DOM
 let nameInput = document.querySelector('#name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector('#job'); // Воспользуйтесь инструментом .querySelector()
 let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
+
+let titleAdd = document.querySelector('#title');
+let link = document.querySelector('#link');
 
 
 const cardList = document.querySelector('.element__grid');
@@ -69,13 +77,12 @@ function openPopup(event) {
 
 openPopupButton.addEventListener('click', openPopup);
 
+
 function closePopup(event) {
   event.preventDefault();
   popup.classList.remove('popup_opened');
 }
-
 closePopunButton.addEventListener('click', closePopup);
-
 
  function formSubmitHandler (evt) {
   evt.preventDefault();
@@ -84,3 +91,24 @@ closePopunButton.addEventListener('click', closePopup);
   closePopup(evt);  
 }
 formElement.addEventListener('submit', formSubmitHandler);
+
+openPopupButtonAdd.addEventListener('click', function openPopupAdd(event) {
+  event.preventDefault();
+  
+  popupAdd.classList.add('popup_opened');
+});
+
+function closePopupAdd(event) {
+  event.preventDefault();
+  popupAdd.classList.remove('popup_opened');
+}
+closePopupBut.addEventListener('click', closePopupAdd);
+
+function formSubmitHandlerAdd (evt) {
+  evt.preventDefault();
+  titleAdd.textContent = initialCards[name];
+  link.src = initialCards.unshift(link);
+
+  closePopupAdd(evt);  
+}
+formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
