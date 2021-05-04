@@ -16,7 +16,7 @@ let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
 
 let titleAdd = document.querySelector('#title');
-let link = document.querySelector('#link');
+let linkAdd = document.querySelector('#foto');
 
 
 const cardList = document.querySelector('.element__grid');
@@ -49,17 +49,32 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach(function(element) {
+function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
-
   cardElement.querySelector('.element__description-text').textContent = element.name;
-  
-  cardElement.querySelector('#foto').src = element.link;
-
+  cardElement.querySelector('.element__foto').src = element.link;
   cardList.append(cardElement)
+}
 
+initialCards.forEach(function(elem) {
+  createCard(elem);
 });
 
+function formSubmitHandlerAdd (evt) {
+  evt.preventDefault();
+  const linkValue = {name: `${titleAdd.value}`, link: `${linkAdd.value}`};
+  initialCards.unshift(`${linkValue}`);
+  createCard(linkValue);
+  closePopupAdd(evt);  
+}
+formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
+
+// button.addEventListener('click', function() {
+//   const taskValue = input.value;
+
+//   tasksContainer.append(createTodo(taskValue));
+//   recalculateCount();
+// });
 
 for (let button of document.querySelectorAll('.element__description-like')) {
   button.addEventListener("click", function () {
@@ -104,11 +119,9 @@ function closePopupAdd(event) {
 }
 closePopupBut.addEventListener('click', closePopupAdd);
 
-function formSubmitHandlerAdd (evt) {
-  evt.preventDefault();
-  titleAdd.textContent = initialCards[name];
-  link.src = initialCards.unshift(link);
-
-  closePopupAdd(evt);  
-}
-formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
+// function formSubmitHandlerAdd (evt) {
+//   evt.preventDefault();
+//   createCard(evt);
+//   closePopupAdd(evt);  
+// }
+// formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
