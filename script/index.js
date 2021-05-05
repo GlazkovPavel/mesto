@@ -1,4 +1,4 @@
-const editPopupButton = document.querySelector('.profile__button-edit');
+const openPopupButton = document.querySelector('.profile__button-edit');
 const popup = document.querySelector('.popup');
 const closePopunButton = document.querySelector('.popup__close');
 const openPopupButtonAdd = document.querySelector('.profile__button-add');
@@ -12,7 +12,6 @@ let formElementAdd = document.querySelector('.popup_form_add');
 // Находим поля формы в DOM
 let nameInput = document.querySelector('#name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector('#job'); // Воспользуйтесь инструментом .querySelector()
-const heading = document.querySelector('.popup__heading');
 let title = document.querySelector('.profile__title');
 let subtitle = document.querySelector('.profile__subtitle');
 
@@ -83,41 +82,15 @@ for (let button of document.querySelectorAll('.element__description-like')) {
   })
 }
 
-editPopupButton.addEventListener('click', function(openPopun) {
+
+function openPopup(event) {
+  event.preventDefault();
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
-  nameInput.placeholder = 'Ваше имя';
-  jobInput.placeholder = 'Ваше призвание';
-  heading.textContent = 'Редактировать профиль';
   popup.classList.add('popup_opened');
+}
 
-  function formSubmitHandler (evt) {
-    evt.preventDefault();
-    title.textContent = nameInput.value;
-    subtitle.textContent = jobInput.value;
-    closePopup(evt);  
-  }
-  formElement.addEventListener('submit', formSubmitHandler);
-  
-});
-
-addPopupButton.addEventListener('click', function(openPopun) {
-  nameInput.value = '';
-  jobInput.src = '';
-  nameInput.placeholder = 'Название';
-  jobInput.placeholder = 'Ссылка на катинку';
-  heading.textContent = 'Новое место';
-  popup.classList.add('popup_opened');
-
-  function formSubmitCard (evet) {
-    evet.preventDefault();
-    nameInput.value = initialCards.unshift(nameInput.value);
-    jobInput.src = '';
-    closePopup(evet);  
-  }
-  formElement.addEventListener('submit', formSubmitCard);
-  
-});
+openPopupButton.addEventListener('click', openPopup);
 
 
 function closePopup(event) {
