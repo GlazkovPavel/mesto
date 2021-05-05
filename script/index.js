@@ -53,17 +53,19 @@ const initialCards = [
 function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
   const trashButton = cardElement.querySelector('.element__trash');
+  const likeButton = cardElement.querySelector('.element__description-like');
   cardElement.querySelector('.element__description-text').textContent = element.name;
   cardElement.querySelector('.element__foto').src = element.link;
 
   trashButton.addEventListener('click', function(e){
     e.target.closest('.element__container').remove();
-
-
   }); 
 
-  return cardElement;
-  
+  likeButton.addEventListener('click', function(ev){
+    ev.target.classList.toggle('element__description-like_active');
+  })
+
+  return cardElement;  
 }
 
 initialCards.forEach(function(elem) {
@@ -78,14 +80,6 @@ function formSubmitHandlerAdd (evt){
   closePopupAdd(evt);
 };
 formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
-
-
-// for (let button of document.querySelectorAll('.element__description-like')) {
-//   button.addEventListener("click", function () {
-//     this.classList.toggle('element__description-like_active');
-//   })
-// }
-
 
 function openPopup(event) {
   event.preventDefault();
@@ -122,12 +116,3 @@ function closePopupAdd(event) {
   popupAdd.classList.remove('popup_opened');
 }
 closePopupBut.addEventListener('click', closePopupAdd);
-
-
-//
-// function formSubmitHandlerAdd (evt) {
-//   evt.preventDefault();
-//   createCard(evt);
-//   closePopupAdd(evt);  
-// }
-// formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
