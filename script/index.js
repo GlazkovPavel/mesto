@@ -53,7 +53,7 @@ function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
   cardElement.querySelector('.element__description-text').textContent = element.name;
   cardElement.querySelector('.element__foto').src = element.link;
-  cardList.append(cardElement)
+  cardList.prepend(cardElement)
 }
 
 initialCards.forEach(function(elem) {
