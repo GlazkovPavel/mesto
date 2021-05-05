@@ -4,7 +4,7 @@ const closePopunButton = document.querySelector('.popup__close');
 const openPopupButtonAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_type_add');
 const closePopupBut = document.querySelector('.popup_close_add');
-const trashButton = document.querySelector('.element__trash');
+
 
 
 // Находим форму в DOM
@@ -52,8 +52,16 @@ const initialCards = [
 
 function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
+  const trashButton = cardElement.querySelector('.element__trash');
   cardElement.querySelector('.element__description-text').textContent = element.name;
   cardElement.querySelector('.element__foto').src = element.link;
+
+  trashButton.addEventListener('click', function(e){
+    e.target.closest('.element__container').remove();
+
+
+  }); 
+
   return cardElement;
   
 }
@@ -88,14 +96,6 @@ function openPopup(event) {
 
 openPopupButton.addEventListener('click', openPopup);
 
-// УДАЛЕНИЕ КАРТОЧКИ
-
-function DelCard(evt) {
-  evt.target.closest('#card-templete').remove();
-}
-
-
-
 //ПОПАП
 function closePopup(event) {
   event.preventDefault();
@@ -124,7 +124,7 @@ function closePopupAdd(event) {
 closePopupBut.addEventListener('click', closePopupAdd);
 
 
-//trashButton.addEventListener('click', DelCard);
+//
 // function formSubmitHandlerAdd (evt) {
 //   evt.preventDefault();
 //   createCard(evt);
