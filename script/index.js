@@ -4,6 +4,7 @@ const closePopunButton = document.querySelector('.popup__close');
 const openPopupButtonAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_type_add');
 const closePopupBut = document.querySelector('.popup_close_add');
+const trashButton = document.querySelector('.element__trash');
 
 
 // Находим форму в DOM
@@ -53,34 +54,29 @@ function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
   cardElement.querySelector('.element__description-text').textContent = element.name;
   cardElement.querySelector('.element__foto').src = element.link;
-  cardList.prepend(cardElement)
+  return cardElement;
+  
 }
 
 initialCards.forEach(function(elem) {
-  createCard(elem);
+  const newCard = createCard(elem);
+  cardList.append(newCard);
 });
 
-function formSubmitHandlerAdd (evt) {
+function formSubmitHandlerAdd (evt){
   evt.preventDefault();
   const linkValue = {name: `${titleAdd.value}`, link: `${linkAdd.value}`};
-  initialCards.unshift(`${linkValue}`);
-  createCard(linkValue);
-  closePopupAdd(evt);  
-}
+  cardList.prepend(createCard(linkValue));
+  closePopupAdd(evt);
+};
 formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
 
-// button.addEventListener('click', function() {
-//   const taskValue = input.value;
 
-//   tasksContainer.append(createTodo(taskValue));
-//   recalculateCount();
-// });
-
-for (let button of document.querySelectorAll('.element__description-like')) {
-  button.addEventListener("click", function () {
-    this.classList.toggle('element__description-like_active');
-  })
-}
+// for (let button of document.querySelectorAll('.element__description-like')) {
+//   button.addEventListener("click", function () {
+//     this.classList.toggle('element__description-like_active');
+//   })
+// }
 
 
 function openPopup(event) {
@@ -92,7 +88,15 @@ function openPopup(event) {
 
 openPopupButton.addEventListener('click', openPopup);
 
+// УДАЛЕНИЕ КАРТОЧКИ
 
+function DelCard(evt) {
+  evt.target.closest('#card-templete').remove();
+}
+
+
+
+//ПОПАП
 function closePopup(event) {
   event.preventDefault();
   popup.classList.remove('popup_opened');
@@ -119,6 +123,8 @@ function closePopupAdd(event) {
 }
 closePopupBut.addEventListener('click', closePopupAdd);
 
+
+//trashButton.addEventListener('click', DelCard);
 // function formSubmitHandlerAdd (evt) {
 //   evt.preventDefault();
 //   createCard(evt);
