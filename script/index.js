@@ -4,8 +4,10 @@ const closePopunButton = document.querySelector('.popup__close');
 const openPopupButtonAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_type_add');
 const closePopupBut = document.querySelector('.popup_close_add');
-
-
+const popupPreviw = document.querySelector('.popup_type_preview');
+const popupPreviewImg = document.querySelector('.popup__preview-img');
+const popupPreviewTitle = document.querySelector('.popup__preview-subtitle');
+const popupPreviewClose = document.querySelector('.popup__close_type_preview');
 
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__form');  // Воспользуйтесь методом querySelector()
@@ -54,6 +56,7 @@ function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
   const trashButton = cardElement.querySelector('.element__trash');
   const likeButton = cardElement.querySelector('.element__description-like');
+  const previwImg = cardElement.querySelector('.element__foto');
   cardElement.querySelector('.element__description-text').textContent = element.name;
   cardElement.querySelector('.element__foto').src = element.link;
 
@@ -64,7 +67,12 @@ function createCard(element){
   likeButton.addEventListener('click', function(ev){
     ev.target.classList.toggle('element__description-like_active');
   })
-
+  previwImg.addEventListener('click', function openPopupPreview(eve) {
+    eve.preventDefault();
+    popupPreviewImg.src = element.link;
+    popupPreviewTitle.textContent = element.name; 
+    popupPreviw.classList.add('popup_opened');
+  });
   return cardElement;  
 }
 
@@ -116,3 +124,9 @@ function closePopupAdd(event) {
   popupAdd.classList.remove('popup_opened');
 }
 closePopupBut.addEventListener('click', closePopupAdd);
+
+function closePopupPreview(ee) {
+  ee.preventDefault();
+  popupPreviw.classList.remove('popup_opened');
+}
+popupPreviewClose.addEventListener('click', closePopupPreview);
