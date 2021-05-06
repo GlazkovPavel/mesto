@@ -95,9 +95,7 @@ function openPopup(event) {
   jobInput.value = subtitle.textContent;
   popup.classList.add('popup_opened');
 }
-
 openPopupButton.addEventListener('click', openPopup);
-
 //ПОПАП
 function closePopup(event) {
   event.preventDefault();
