@@ -1,7 +1,4 @@
 .popup__preview-container{
-  max-width: 75vw;
-  min-height: 75vh;
-  display: block;
   position: relative;
   margin: auto;
 }
