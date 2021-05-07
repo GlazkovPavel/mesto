@@ -3,7 +3,7 @@ const popup = document.querySelector('.popup');
 const closePopunButton = document.querySelector('.popup__close');
 const openPopupButtonAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_type_add');
-const closePopupBut = document.querySelector('.popup_close_add');
+const closePopupBut = document.querySelector('.popup__close_type_add');
 const popupPreviw = document.querySelector('.popup_type_preview');
 const popupPreviewImg = document.querySelector('.popup__preview-img');
 const popupPreviewTitle = document.querySelector('.popup__preview-subtitle');
@@ -11,7 +11,7 @@ const popupPreviewClose = document.querySelector('.popup__close_type_preview');
 
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__form');  // Воспользуйтесь методом querySelector()
-let formElementAdd = document.querySelector('.popup_form_add');
+let formElementAdd = document.querySelector('.popup__form_type_add');
 // Находим поля формы в DOM
 let nameInput = document.querySelector('#name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector('#job'); // Воспользуйтесь инструментом .querySelector()
