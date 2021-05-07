@@ -13,7 +13,7 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__foto" src=".//images/profile.jpg" alt="Фото профиля">
+        <img class="profile__foto" src="./images/profile.jpg" alt="Фото профиля">
         <div class="profile__container-text">
           <h1 class="profile__title" >Жак-Ив Кусто</h1>
           <p class="profile__subtitle">Исследователь океана</p>
@@ -32,13 +32,13 @@
       <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
   </div>
-  <div class="popup">
+  <div class="popup popup_type_profile">
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__heading">Редактировать профиль</h2>
       <form class="popup__form" name="profile-name">
-          <input class="popup__item" type="text" id="name" name="name"  placeholder=" ">
-          <input class="popup__item" type="text" id="job" src="" name="job" placeholder=" ">
+          <input class="popup__item" type="text" id="name" name="name"  placeholder="Ваше имя" required>
+          <input class="popup__item" type="text" id="job" name="job" placeholder="Ваше призвание" required>
           <button class="popup__save" type="submit">Сохранить</button>
       </form>
     </div>
