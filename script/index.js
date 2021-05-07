@@ -1,9 +1,9 @@
 const openPopupButton = document.querySelector('.profile__button-edit');
-const popupProfile = document.querySelector('.popup_type_profile');
+const popup = document.querySelector('.popup');
 const closePopunButton = document.querySelector('.popup__close');
 const openPopupButtonAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_type_add');
-const closePopupButton = document.querySelector('.popup__close_type_add');
+const closePopupButtonAdd = document.querySelector('.popup__close_type_add');
 const popupPreview = document.querySelector('.popup_type_preview');
 const popupPreviewImg = document.querySelector('.popup__preview-img');
 const popupPreviewTitle = document.querySelector('.popup__preview-subtitle');
@@ -59,6 +59,7 @@ function createCard(element){
   const previewImg = cardElement.querySelector('.element__foto');
   cardElement.querySelector('.element__description-text').textContent = element.name;
   previewImg.src = element.link;
+  previewImg.alt = element.name;
 
   trashButton.addEventListener('click', function(e){
     e.target.closest('.element__container').remove();
@@ -85,7 +86,7 @@ function handlerFormSubmitAdd (evt){
   evt.preventDefault();
   const linkValue = {name: `${titleAdd.value}`, link: `${linkAdd.value}`};
   cardList.prepend(createCard(linkValue));
-  closePopupAdd(evt);
+  closePopup(evt);
 }
 formPopupAdd.addEventListener('submit', handlerFormSubmitAdd);
 
@@ -93,15 +94,13 @@ function openPopup(event) {
   event.preventDefault();
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
-  popupProfile.classList.add('popup_opened');
+  popup.classList.add('popup_opened');
 }
-openPopupButton.addEventListener('click', openPopup);
-//ПОПАП
-function closePopup(event) {
-  event.preventDefault();
-  popupProfile.classList.remove('popup_opened');
+
+function closePopup(event) { 
+	const closedPopup = event.target.closest('.popup');
+	closedPopup.classList.remove('popup_opened');
 }
-closePopunButton.addEventListener('click', closePopup);
 
  function handlerFormSubmit (evt) {
   evt.preventDefault();
@@ -109,22 +108,11 @@ closePopunButton.addEventListener('click', closePopup);
   subtitle.textContent = jobInput.value;
   closePopup(evt);  
 }
+
 formPopupProfile.addEventListener('submit', handlerFormSubmit);
+closePopunButton.addEventListener('click', closePopup);
+closePopupButtonAdd.addEventListener('click', closePopup);
+popupPreviewClose.addEventListener('click', closePopup);
+openPopupButton.addEventListener('click', openPopup);
+openPopupButtonAdd.addEventListener('click', openPopup);
 
-openPopupButtonAdd.addEventListener('click', function openPopupAdd(event) {
-  event.preventDefault();
-  
-  popupAdd.classList.add('popup_opened');
-})
-
-function closePopupAdd(event) {
-  event.preventDefault();
-  popupAdd.classList.remove('popup_opened');
-}
-closePopupButton.addEventListener('click', closePopupAdd);
-
-function closePopupPreview(ee) {
-  ee.preventDefault();
-  popupPreview.classList.remove('popup_opened');
-}
-popupPreviewClose.addEventListener('click', closePopupPreview);
