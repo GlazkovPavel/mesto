@@ -1,5 +1,4 @@
 const openPopupButton = document.querySelector('.profile__button-edit');
-const popup = document.querySelector('.popup');
 const closePopunButton = document.querySelector('.popup__close');
 const openPopupButtonAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_type_add');
@@ -54,7 +53,7 @@ function handlerFormSubmitAdd (evt){
   evt.preventDefault();
   const linkValue = {name: `${titleAdd.value}`, link: `${linkAdd.value}`};
   cardList.prepend(createCard(linkValue));
-  closePopup(evt);
+  closePopup(popupAdd);
 }
 formPopupAdd.addEventListener('submit', handlerFormSubmitAdd);
 
@@ -65,28 +64,32 @@ openPopupButton.addEventListener('click', function(){
   openPopup(popupProfile);
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent; 
-});
+})
 
 openPopupButtonAdd.addEventListener('click', function(){
   openPopup(popupAdd)
-});
-
-function closePopup(event) { 
-	const closedPopup = event.target.closest('.popup');
-	closedPopup.classList.remove('popup_opened');
+})
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
- function handlerFormProfile (evt) {
+function handlerFormProfile (evt) {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
-  closePopup(evt);  
+  closePopup(popupProfile);  
 }
 
 formPopupProfile.addEventListener('submit', handlerFormProfile);
-closePopunButton.addEventListener('click', closePopup);
-closePopupButtonAdd.addEventListener('click', closePopup);
-popupPreviewClose.addEventListener('click', closePopup);
+closePopunButton.addEventListener('click', function(){
+  closePopup(popupProfile);
+})
+closePopupButtonAdd.addEventListener('click', function(){
+  closePopup(popupAdd);
+})
+popupPreviewClose.addEventListener('click', function(){
+  closePopup(popupPreview);
+})
 
 
 
