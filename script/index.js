@@ -9,24 +9,16 @@ const popupPreview = document.querySelector('.popup_type_preview');
 const popupPreviewImg = document.querySelector('.popup__preview-img');
 const popupPreviewTitle = document.querySelector('.popup__preview-subtitle');
 const popupPreviewClose = document.querySelector('.popup__close_type_preview');
-
-// Находим форму в DOM
-const formPopupProfile = document.querySelector('.popup__form');  // Воспользуйтесь методом querySelector()
+const formPopupProfile = document.querySelector('.popup__form');
 const formPopupAdd = document.querySelector('.popup__form_type_add');
-// Находим поля формы в DOM
-const nameInput = document.querySelector('#name'); // Воспользуйтесь инструментом .querySelector()
-const jobInput = document.querySelector('#job'); // Воспользуйтесь инструментом .querySelector()
+const nameInput = document.querySelector('#name');
+const jobInput = document.querySelector('#job'); 
 const title = document.querySelector('.profile__title');
 const subtitle = document.querySelector('.profile__subtitle');
-
 const titleAdd = document.querySelector('#title');
 const linkAdd = document.querySelector('#foto');
-
-
 const cardList = document.querySelector('.element__grid');
 const cardTemplate = document.querySelector('#card-templete');
-
-
 
 function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
