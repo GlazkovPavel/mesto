@@ -3,6 +3,7 @@ const popup = document.querySelector('.popup');
 const closePopunButton = document.querySelector('.popup__close');
 const openPopupButtonAdd = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_type_add');
+const popupProfile = document.querySelector('.popup_type_profile');
 const closePopupButtonAdd = document.querySelector('.popup__close_type_add');
 const popupPreview = document.querySelector('.popup_type_preview');
 const popupPreviewImg = document.querySelector('.popup__preview-img');
@@ -25,32 +26,7 @@ const linkAdd = document.querySelector('#foto');
 const cardList = document.querySelector('.element__grid');
 const cardTemplate = document.querySelector('#card-templete');
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+
 
 function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
@@ -90,12 +66,18 @@ function handlerFormSubmitAdd (evt){
 }
 formPopupAdd.addEventListener('submit', handlerFormSubmitAdd);
 
-function openPopup(event) {
-  event.preventDefault();
-  nameInput.value = title.textContent;
-  jobInput.value = subtitle.textContent;
-  popup.classList.add('popup_opened');
+function openPopup(popup) { 
+	popup.classList.add('popup_opened');
 }
+openPopupButton.addEventListener('click', function(){
+  openPopup(popupProfile);
+  nameInput.value = title.textContent;
+  jobInput.value = subtitle.textContent; 
+});
+
+openPopupButtonAdd.addEventListener('click', function(){
+  openPopup(popupAdd)
+});
 
 function closePopup(event) { 
 	const closedPopup = event.target.closest('.popup');
@@ -113,6 +95,6 @@ formPopupProfile.addEventListener('submit', handlerFormSubmit);
 closePopunButton.addEventListener('click', closePopup);
 closePopupButtonAdd.addEventListener('click', closePopup);
 popupPreviewClose.addEventListener('click', closePopup);
-openPopupButton.addEventListener('click', openPopup);
-openPopupButtonAdd.addEventListener('click', openPopup);
+
+
 
