@@ -40,7 +40,7 @@ function createCard(element){
     eve.preventDefault();
     popupPreviewImg.src = element.link;
     popupPreviewTitle.textContent = element.name; 
-    popupPreview.classList.add('popup_opened');
+    openPopup(popupPreview);
   })
   return cardElement;  
 }
@@ -76,14 +76,14 @@ function closePopup(event) {
 	closedPopup.classList.remove('popup_opened');
 }
 
- function handlerFormSubmit (evt) {
+ function handlerFormProfile (evt) {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
   closePopup(evt);  
 }
 
-formPopupProfile.addEventListener('submit', handlerFormSubmit);
+formPopupProfile.addEventListener('submit', handlerFormProfile);
 closePopunButton.addEventListener('click', closePopup);
 closePopupButtonAdd.addEventListener('click', closePopup);
 popupPreviewClose.addEventListener('click', closePopup);
