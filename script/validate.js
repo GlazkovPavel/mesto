@@ -23,14 +23,13 @@ const checkInputValidity = (formElement, inputElement) => {
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll('.popup__item'));
   const buttonElement = formElement.querySelector('.popup__save');
-
-  // чтобы проверить состояние кнопки в самом начале
+  
   toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement);
-      // чтобы проверять его при изменении любого из полей
+
       toggleButtonState(inputList, buttonElement);
     });
   });
@@ -56,7 +55,7 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-  buttonElement.setAttribute('disabled', 'disabled')
+  buttonElement.setAttribute('disabled', true)
 } else {
   buttonElement.removeAttribute('disabled');
 }
