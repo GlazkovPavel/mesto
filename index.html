@@ -36,9 +36,11 @@
     <div class="popup__container">
       <button class="popup__close" type="button"></button>
       <h2 class="popup__heading">Редактировать профиль</h2>
-      <form class="popup__form" name="profile-name">
-          <input class="popup__item" type="text" id="name" name="name"  placeholder="Ваше имя" required>
-          <input class="popup__item" type="text" id="job" name="job" placeholder="Ваше призвание" required>
+      <form class="popup__form" name="profile-name" type="form" novalidate>
+          <input class="popup__item popup_type_name" type="text" name="name" placeholder="Ваше имя" required>
+          <span class="text-input-error form__input-error">Вы пропустили это поле.</span>
+          <input class="popup__item popup_type_job" type="text" name="job" placeholder="Ваше призвание" required>
+          <span class="text-input-error form__input-error">Вы пропустили это поле.</span>
           <button class="popup__save" type="submit">Сохранить</button>
       </form>
     </div>
@@ -47,9 +49,11 @@
     <div class="popup__container">
       <button class="popup__close popup__close_type_add" type="button"></button>
       <h2 class="popup__heading">Новое место</h2>
-      <form class="popup__form popup__form_type_add" name="profile-name">
-          <input class="popup__item" type="text" id="title" name="title"  placeholder="Название">
-          <input class="popup__item" type="url" id="foto" name="link" placeholder="Ссылка на картинку">
+      <form class="popup__form popup__form_type_add" type="form" name="profile-name" novalidate>
+          <input class="popup__item popup_title_add" type="text" name="title"  placeholder="Название">
+          <span class="text-input-error form__input-error">Вы пропустили это поле.</span>
+          <input class="popup__item popup_type_foto" type="url"  name="link" placeholder="Ссылка на картинку">
+          <span class="url-input-error form__input-error">Введите адрес сайта.</span>
           <button class="popup__save popup__save_type_add" type="submit">Сохранить</button>
       </form>
     </div>
@@ -72,6 +76,7 @@
     </li>
   </template>
   <script src="./script/array.js"></script>
+  <script src="./script/validate.js"></script>
   <script src="./script/index.js"></script>
 </body>
 </html>

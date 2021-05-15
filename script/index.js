@@ -10,12 +10,12 @@ const popupPreviewTitle = document.querySelector('.popup__preview-subtitle');
 const popupPreviewClose = document.querySelector('.popup__close_type_preview');
 const formPopupProfile = document.querySelector('.popup__form');
 const formPopupAdd = document.querySelector('.popup__form_type_add');
-const nameInput = document.querySelector('#name');
-const jobInput = document.querySelector('#job'); 
+const nameInput = document.querySelector('.popup_type_name');
+const jobInput = document.querySelector('.popup_type_job'); 
 const title = document.querySelector('.profile__title');
 const subtitle = document.querySelector('.profile__subtitle');
-const titleAdd = document.querySelector('#title');
-const linkAdd = document.querySelector('#foto');
+const titleAdd = document.querySelector('.popup_title_add');
+const linkAdd = document.querySelector('.popup_type_foto');
 const cardList = document.querySelector('.element__grid');
 const cardTemplate = document.querySelector('#card-templete');
 
