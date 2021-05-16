@@ -37,7 +37,7 @@ const setEventListeners = (formElement, config) => {
   const {inputSelector, submitButtonSelector, ...restConfig} = config;
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
-  
+   
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement, restConfig);
