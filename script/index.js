@@ -18,7 +18,7 @@ const titleAdd = document.querySelector('.popup_title_add');
 const linkAdd = document.querySelector('.popup_type_foto');
 const cardList = document.querySelector('.element__grid');
 const cardTemplate = document.querySelector('#card-templete');
-const popupListener = document.querySelector('.popup');
+const popupProfileSave = document.querySelector('.popup__save');
 
 
 function createCard(element){
@@ -66,6 +66,8 @@ openPopupButton.addEventListener('click', function(){
   openPopup(popupProfile);
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
+  toggleButtonState(Array.from(popupProfile.querySelectorAll('popup__input-text')), popupProfileSave);
+
 })
 
 openPopupButtonAdd.addEventListener('click', function(){
