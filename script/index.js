@@ -80,6 +80,7 @@ function handlerFormProfile (evt) {
   closePopup(popupProfile);  
 }
 
+
 formPopupProfile.addEventListener('submit', handlerFormProfile);
 closePopunButton.addEventListener('click', function(){
   closePopup(popupProfile);
