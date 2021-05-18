@@ -40,6 +40,7 @@ function createCard(element){
   previewImg.addEventListener('click', function openPopupPreview(eve) {
     eve.preventDefault();
     popupPreviewImg.src = element.link;
+    popupPreviewImg.alt = element.name;
     popupPreviewTitle.textContent = element.name; 
     openPopup(popupPreview);
   })
@@ -61,6 +62,7 @@ formPopupAdd.addEventListener('submit', submitAddCardForm);
 
 function openPopup(popup) { 
 	popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeEscape)
 }
 openEditProfilePopupButton.addEventListener('click', function(){
   openPopup(popupEditProfile);
@@ -75,6 +77,8 @@ openAddCardPopupButton.addEventListener('click', function(){
 })
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeEscape)
+
 }
 
 function submitEditProfileForm (evt) {
@@ -83,11 +87,13 @@ function submitEditProfileForm (evt) {
   subtitle.textContent = jobInput.value;
   closePopup(popupEditProfile);  
 }
-document.addEventListener('keydown', evt => {
+
+function closeEscape (evt){
   if(evt.key === 'Escape') {
     document.querySelector('.popup_opened').classList.remove('popup_opened');
   }
-});
+}
+
 
 formPopupProfile.addEventListener('submit', submitEditProfileForm);
 
