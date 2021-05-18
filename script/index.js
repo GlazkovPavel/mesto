@@ -1,13 +1,13 @@
-const openPopupButton = document.querySelector('.profile__button-edit');
-const closePopunButton = document.querySelector('.popup__close');
-const openPopupButtonAdd = document.querySelector('.profile__button-add');
-const popupAdd = document.querySelector('.popup_type_add');
-const popupProfile = document.querySelector('.popup_type_profile');
-const closePopupButtonAdd = document.querySelector('.popup__close_type_add');
+const openEditProfilePopupButton = document.querySelector('.profile__button-edit');
+const closeEditProfilePopupButton = document.querySelector('.popup__close');
+const openAddCardPopupButton = document.querySelector('.profile__button-add');
+const popupAddCard = document.querySelector('.popup_type_add');
+const popupEditProfile = document.querySelector('.popup_type_profile');
+const closeAddCardPopupButton = document.querySelector('.popup__close_type_add');
 const popupPreview = document.querySelector('.popup_type_preview');
 const popupPreviewImg = document.querySelector('.popup__preview-img');
 const popupPreviewTitle = document.querySelector('.popup__preview-subtitle');
-const popupPreviewClose = document.querySelector('.popup__close_type_preview');
+const closePopupPreviewButton = document.querySelector('.popup__close_type_preview');
 const formPopupProfile = document.querySelector('.popup__form');
 const formPopupAdd = document.querySelector('.popup__form_type_add');
 const nameInput = document.querySelector('.popup__item_type_name');
@@ -51,37 +51,37 @@ initialCards.forEach(function(elem) {
   cardList.append(newCard);
 })
 
-function handlerFormSubmitAdd (evt){
+function submitAddCardForm (evt){
   evt.preventDefault();
   const linkValue = {name: `${titleAdd.value}`, link: `${linkAdd.value}`};
   cardList.prepend(createCard(linkValue));
-  closePopup(popupAdd);
+  closePopup(popupAddCard);
 }
-formPopupAdd.addEventListener('submit', handlerFormSubmitAdd);
+formPopupAdd.addEventListener('submit', submitAddCardForm);
 
 function openPopup(popup) { 
 	popup.classList.add('popup_opened');
 }
-openPopupButton.addEventListener('click', function(){
-  openPopup(popupProfile);
+openEditProfilePopupButton.addEventListener('click', function(){
+  openPopup(popupEditProfile);
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
-  toggleButtonState(Array.from(popupProfile.querySelectorAll('popup__input-text')), popupProfileSave);
+  toggleButtonState(Array.from(popupEditProfile.querySelectorAll('popup__input-text')), popupProfileSave);
 
 })
 
-openPopupButtonAdd.addEventListener('click', function(){
-  openPopup(popupAdd)
+openAddCardPopupButton.addEventListener('click', function(){
+  openPopup(popupAddCard)
 })
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-function handlerFormProfile (evt) {
+function submitEditProfileForm (evt) {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
-  closePopup(popupProfile);  
+  closePopup(popupEditProfile);  
 }
 document.addEventListener('keydown', evt => {
   if(evt.key === 'Escape') {
@@ -89,18 +89,18 @@ document.addEventListener('keydown', evt => {
   }
 });
 
-formPopupProfile.addEventListener('submit', handlerFormProfile);
+formPopupProfile.addEventListener('submit', submitEditProfileForm);
 
-closePopupButtonAdd.addEventListener('click', function(){
-  closePopup(popupAdd);
+closeAddCardPopupButton.addEventListener('click', function(){
+  closePopup(popupAddCard);
 })
-popupAdd.addEventListener('click', evt => {
+popupAddCard.addEventListener('click', evt => {
   if (evt.target === evt.currentTarget) {
-         closePopup(popupAdd);
+         closePopup(popupAddCard);
        }
 })
 
-popupPreviewClose.addEventListener('click', () => closePopup(popupPreview));
+closePopupPreviewButton.addEventListener('click', () => closePopup(popupPreview));
 
 popupPreview.addEventListener('click', evt => {
    if(evt.target.classList.contains('popup_opened')) {
@@ -108,10 +108,10 @@ popupPreview.addEventListener('click', evt => {
    }
  });
 
-closePopunButton.addEventListener('click', () => closePopup(popupProfile));
+ closeEditProfilePopupButton.addEventListener('click', () => closePopup(popupEditProfile));
 
-popupProfile.addEventListener('click', evt => {
+ popupEditProfile.addEventListener('click', evt => {
    if(evt.target.classList.contains('popup_opened')) {
-     closePopup(popupProfile);
+     closePopup(popupEditProfile);
    }
  });

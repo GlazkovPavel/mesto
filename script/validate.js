@@ -59,11 +59,11 @@ const enableValidation = (config) => {
     
   });
 };
-
-enableValidation({
+const validationConfig = {
   formSelector: '.form',
   inputSelector: '.popup__item',
   submitButtonSelector: '.popup__save',
   inputErrorClass: 'popup__item_type_error',
-  errorClass: 'popup__input-error_active'
-} );
+  errorClass: 'popup__input-error_active' 
+}
+enableValidation(validationConfig);
