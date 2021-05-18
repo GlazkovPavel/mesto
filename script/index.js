@@ -19,7 +19,7 @@ const linkAdd = document.querySelector('.popup__item_type_foto');
 const cardList = document.querySelector('.element__grid');
 const cardTemplate = document.querySelector('#card-templete');
 const popupProfileSave = document.querySelector('.popup__save');
-
+const popupAddSaveButton = document.querySelector('.popup__save_type_add');
 
 function createCard(element){
   const cardElement = cardTemplate.content.cloneNode(true);
@@ -57,6 +57,9 @@ function submitAddCardForm (evt){
   const linkValue = {name: `${titleAdd.value}`, link: `${linkAdd.value}`};
   cardList.prepend(createCard(linkValue));
   closePopup(popupAddCard);
+  popupAddCard.reset();
+  toggleButtonState(Array.from(popupAddCard.querySelectorAll('.popup__input-text')), popupAddSaveButton);
+  
 }
 formPopupAdd.addEventListener('submit', submitAddCardForm);
 
@@ -85,7 +88,7 @@ function submitEditProfileForm (evt) {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
-  closePopup(popupEditProfile);  
+  closePopup(popupEditProfile);
 }
 
 function closeEscape (evt){
