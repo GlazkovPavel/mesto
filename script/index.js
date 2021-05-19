@@ -23,7 +23,7 @@ const popupAddSaveButton = document.querySelector('.popup__save_type_add');
 
 
 const hideSpan = () => {
-  const formList = Array.from(document.querySelectorAll('.form'));
+  const formList = document.querySelectorAll('.form');
   formList.forEach((span) => {
     span.querySelector('.popup__input-error').textContent = ' ';
     span.querySelector('.popup__item').classList.remove('popup__item_type_error');
@@ -103,6 +103,8 @@ function submitEditProfileForm (evt) {
 function closeEscape (evt){
   if(evt.key === 'Escape') {
     document.querySelector('.popup_opened').classList.remove('popup_opened');
+    formPopupAdd.reset();
+    hideSpan();
   }
 }
 
