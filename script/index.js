@@ -22,12 +22,15 @@ const popupProfileSave = document.querySelector('.popup__save');
 const popupAddSaveButton = document.querySelector('.popup__save_type_add');
 
 
-const hideSpan = () => {
-  const formList = document.querySelectorAll('.form');
-  formList.forEach((span) => {
-    span.querySelector('.popup__input-error').textContent = ' ';
-    span.querySelector('.popup__item').classList.remove('popup__item_type_error');
+const hideSpan = (popup) => {
+  const formList = Array.from(popup.querySelectorAll('.popup__input-error'));
+  const itemList = Array.from(popup.querySelectorAll('.popup__item'))
+  formList.forEach((spanElement) => {
+    spanElement.textContent = ' ';
   });
+  itemList.forEach((itemElement) => {
+    itemElement.classList.remove('popup__item_type_error')
+  })
 };
 
 
@@ -104,7 +107,8 @@ function closeEscape (evt){
   if(evt.key === 'Escape') {
     document.querySelector('.popup_opened').classList.remove('popup_opened');
     formPopupAdd.reset();
-    hideSpan();
+    hideSpan(popupAddCard);
+    hideSpan(popupEditProfile);
   }
 }
 
