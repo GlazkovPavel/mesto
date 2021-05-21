@@ -61,8 +61,6 @@ function submitAddCardForm (evt){
   const linkValue = {name: `${titleAdd.value}`, link: `${linkAdd.value}`};
   cardList.prepend(createCard(linkValue));
   closePopup(popupAddCard);
-  toggleButtonState(popupAddCardArray, popupAddSaveButton);
-  formPopupAdd.reset();
 }
 formPopupAdd.addEventListener('submit', submitAddCardForm);
 
@@ -71,6 +69,8 @@ function openPopup(popup) {
   document.addEventListener('keydown', closeEscape)
 }
 openEditProfilePopupButton.addEventListener('click', function(){
+  formPopupProfile.reset();
+  removeValidationErrors(popupEditProfile);
   openPopup(popupEditProfile);
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
@@ -79,7 +79,10 @@ openEditProfilePopupButton.addEventListener('click', function(){
 })
 
 openAddCardPopupButton.addEventListener('click', function(){
-  openPopup(popupAddCard)
+  formPopupAdd.reset();
+  removeValidationErrors(popupAddCard);
+  openPopup(popupAddCard);
+
 })
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
@@ -97,9 +100,6 @@ function submitEditProfileForm (evt) {
 function closeEscape (evt){
   if(evt.key === 'Escape') {
     document.querySelector('.popup_opened').classList.remove('popup_opened');
-    formPopupAdd.reset();
-    removeValidationErrors(popupAddCard);
-    removeValidationErrors(popupEditProfile);
   }
 }
 
@@ -115,8 +115,6 @@ closeAddCardPopupButton.addEventListener('click', function(){
 popupAddCard.addEventListener('click', evt => {
   if (evt.target === evt.currentTarget) {
          closePopup(popupAddCard);
-         removeValidationErrors(popupAddCard);
-         formPopupAdd.reset();
        }
 })
 
@@ -130,13 +128,11 @@ popupPreview.addEventListener('click', evt => {
 
  closeEditProfilePopupButton.addEventListener('click', function(){ 
      closePopup(popupEditProfile);
-     removeValidationErrors(popupEditProfile);
  })
  
 
  popupEditProfile.addEventListener('click', evt => {
    if(evt.target.classList.contains('popup_opened')) {
      closePopup(popupEditProfile);
-     removeValidationErrors(popupEditProfile);
    }
  });
