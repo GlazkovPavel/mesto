@@ -1,4 +1,6 @@
-class Card {
+import {openPopup, popupPreviewImg, popupPreviewTitle, popupPreview} from "./index";
+
+export class Card {
   constructor(name, link, templateSelector) {
     this._name = name;
     this._link = link;
@@ -40,3 +42,4 @@ class Card {
     return this._cardElement;
   }
 }
+
