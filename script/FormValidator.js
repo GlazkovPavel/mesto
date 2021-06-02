@@ -6,7 +6,6 @@ export class FormValidator {
     this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
   }
 
-
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);

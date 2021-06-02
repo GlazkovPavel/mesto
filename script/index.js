@@ -157,24 +157,17 @@ const removeValidationErrors = (popup) => {
   })
 
 };
-
- const profileEditFormValidator = new FormValidator({
-   formSelector: '.form',
+const configValidator = {formSelector: '.form',
   inputSelector: '.popup__item',
   submitButtonSelector: '.popup__save',
   inputErrorClass: 'popup__item_type_error',
-  errorClass: 'popup__input-error_active'
- }, document.querySelector('form[name="profile-name"]'))
+  errorClass: 'popup__input-error_active'};
+
+const profileEditFormValidator = new FormValidator(configValidator, document.querySelector('form[name="profile-name"]'))
 
 profileEditFormValidator.enableValidation();
 
-const profileAddFormValidator = new FormValidator({
-  formSelector: '.form',
-  inputSelector: '.popup__item',
-  submitButtonSelector: '.popup__save',
-  inputErrorClass: 'popup__item_type_error',
-  errorClass: 'popup__input-error_active'
-}, document.querySelector('.popup__form_type_add'))
+const profileAddFormValidator = new FormValidator(configValidator, document.querySelector('.popup__form_type_add'))
 
 profileAddFormValidator.enableValidation();
 
