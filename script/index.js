@@ -1,5 +1,5 @@
-import {Card} from "./Card";
-import {FormValidator} from "./FormValidator";
+import {Card} from "./Card.js";
+import {FormValidator} from "./FormValidator.js";
 
 const openEditProfilePopupButton = document.querySelector('.profile__button-edit');
 const closeEditProfilePopupButton = document.querySelector('.popup__close');
@@ -25,6 +25,8 @@ const popupProfileSave = document.querySelector('.popup__save_type_profile');
 const popupAddSaveButton = document.querySelector('.popup__save_type_add');
 const popupAddCardArray= Array.from(popupAddCard.querySelectorAll('.popup__item'));
 const popupEditProfileArray= Array.from(popupEditProfile.querySelectorAll('.popup__item'));
+
+
 
 const initialCards = [
   {
@@ -53,17 +55,6 @@ const initialCards = [
   }
 ];
 
-const removeValidationErrors = (popup) => {
-  const formList = Array.from(popup.querySelectorAll('.popup__input-error'));
-  const itemList = Array.from(popup.querySelectorAll('.popup__item'))
-  formList.forEach((spanElement) => {
-    spanElement.textContent = ' ';
-  });
-  itemList.forEach((itemElement) => {
-    itemElement.classList.remove('popup__item_type_error')
-  })
-
-};
 
 
 function createCard(data){
@@ -95,8 +86,7 @@ openEditProfilePopupButton.addEventListener('click', function(){
   openPopup(popupEditProfile);
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
-  //toggleButtonState(popupEditProfileArray, popupProfileSave);
-
+  profileEditFormValidator.toggleButtonState();
 })
 
 openAddCardPopupButton.addEventListener('click', function(){
@@ -104,7 +94,7 @@ openAddCardPopupButton.addEventListener('click', function(){
   formPopupAdd.reset();
   openPopup(popupAddCard);
   removeValidationErrors(popupAddCard);
-  //toggleButtonState(popupAddCardArray, popupAddSaveButton);
+  profileAddFormValidator.toggleButtonState();
 })
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
@@ -156,6 +146,17 @@ popupPreview.addEventListener('click', evt => {
      closePopup(popupEditProfile);
    }
  });
+const removeValidationErrors = (popup) => {
+  const formList = Array.from(popup.querySelectorAll('.popup__input-error'));
+  const itemList = Array.from(popup.querySelectorAll('.popup__item'))
+  formList.forEach((spanElement) => {
+    spanElement.textContent = ' ';
+  });
+  itemList.forEach((itemElement) => {
+    itemElement.classList.remove('popup__item_type_error')
+  })
+
+};
 
  const profileEditFormValidator = new FormValidator({
    formSelector: '.form',
