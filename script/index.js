@@ -20,12 +20,6 @@ const subtitle = document.querySelector('.profile__subtitle');
 const titleAdd = document.querySelector('.popup__item_title_add');
 const linkAdd = document.querySelector('.popup__item_type_foto');
 const cardList = document.querySelector('.element__grid');
-const cardTemplate = document.querySelector('#card-templete');
-const popupProfileSave = document.querySelector('.popup__save_type_profile');
-const popupAddSaveButton = document.querySelector('.popup__save_type_add');
-const popupAddCardArray= Array.from(popupAddCard.querySelectorAll('.popup__item'));
-const popupEditProfileArray= Array.from(popupEditProfile.querySelectorAll('.popup__item'));
-
 
 
 const initialCards = [
@@ -54,7 +48,6 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-
 
 
 function createCard(data){
@@ -124,29 +117,22 @@ closeAddCardPopupButton.addEventListener('click', function(){
   formPopupAdd.reset();
 
 })
-popupAddCard.addEventListener('click', evt => {
-  if (evt.target === evt.currentTarget) {
-         closePopup(popupAddCard);
-       }
-})
 
 closePopupPreviewButton.addEventListener('click', () => closePopup(popupPreview));
 
-popupPreview.addEventListener('click', evt => {
-   if(evt.target.classList.contains('popup_opened')) {
-     closePopup(popupPreview);
-   }
- });
 
  closeEditProfilePopupButton.addEventListener('click', function(){
      closePopup(popupEditProfile);
+ });
+
+ [popupEditProfile, popupPreview, popupAddCard].forEach((popup) => {
+   popup.addEventListener('click', evt => {
+     if(evt.target.classList.contains('popup_opened')) {
+       closePopup(popup);
+     }
+   })
  })
 
- popupEditProfile.addEventListener('click', evt => {
-   if(evt.target.classList.contains('popup_opened')) {
-     closePopup(popupEditProfile);
-   }
- });
 const removeValidationErrors = (popup) => {
   const formList = Array.from(popup.querySelectorAll('.popup__input-error'));
   const itemList = Array.from(popup.querySelectorAll('.popup__item'))
