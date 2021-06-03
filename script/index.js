@@ -111,7 +111,8 @@ function submitEditProfileForm (evt) {
 
 function closeEscape (evt){
   if(evt.key === 'Escape') {
-    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    const popupElement =  document.querySelector('.popup_opened');
+    closePopup(popupElement);
   }
 }
 
