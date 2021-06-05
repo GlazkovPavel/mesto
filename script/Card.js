@@ -1,11 +1,9 @@
-import {openPopup, popupPreviewImg, popupPreviewTitle, popupPreview} from "./index.js";
-
 export class Card {
-  constructor(name, link, templateSelector) {
+  constructor(name, link, templateSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
-
+    this.handleCardClick = handleCardClick;
   }
   _makeElements(){
     const cardTemplate = document.querySelector(this._templateSelector);
@@ -20,20 +18,13 @@ export class Card {
     this._previewImg = this._cardElement.querySelector('.element__foto');
     this._trashButton.addEventListener('click', (e) => this._handleRemoveClick(e))
     this._likeButton.addEventListener('click', () => this._handleLikeClick())
-    this._previewImg.addEventListener('click', (e) => this._handleOpenPreview(e))
+    this._previewImg.addEventListener('click', (e) => this.handleCardClick(e))
   }
   _handleLikeClick(){
     this._likeButton.classList.toggle('element__description-like_active');
   }
   _handleRemoveClick(e){
     e.target.closest('.element__container').remove()
-  }
-  _handleOpenPreview(eve){
-    eve.preventDefault();
-    popupPreviewImg.src = this._link;
-    popupPreviewImg.alt = this._name;
-    popupPreviewTitle.textContent = this._name;
-    openPopup(popupPreview);
   }
 
   render() {
