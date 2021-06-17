@@ -5,12 +5,12 @@ import {
   openEditProfilePopupButton,
   closeEditProfilePopupButton,
   openAddCardPopupButton,
-  //popupAddCard,
-  //popupEditProfile,
+  popupAddCard,
+  popupEditProfile,
   closeAddCardPopupButton,
   closePopupPreviewButton,
-  //formPopupProfile,
-  //formPopupAdd,
+  formPopupProfile,
+  formPopupAdd,
   //nameInput,
   jobInput,
   //title,
@@ -93,19 +93,19 @@ editProfilePopup.setEventListeners();
 //   document.addEventListener("keydown", closeEscape);
 // }
 openEditProfilePopupButton.addEventListener("click", function () {
-  //formPopupProfile.reset();
-  //removeValidationErrors(popupEditProfile);
+  formPopupProfile.reset();
+  removeValidationErrors(popupEditProfile);
   editProfilePopup.open();
   // nameInput.value = title.textContent;
   // jobInput.value = subtitle.textContent;
-  //profileEditFormValidator.toggleButtonState();
+  profileEditFormValidator.toggleButtonState();
 });
 
 openAddCardPopupButton.addEventListener("click", function () {
-  //addCardPopup.reset();
+  formPopupAdd.reset();
   addCardPopup.open();
-  //removeValidationErrors(addCardPopup);
-  //profileAddFormValidator.toggleButtonState();
+  removeValidationErrors(popupAddCard);
+  profileAddFormValidator.toggleButtonState();
 });
 
 
@@ -141,17 +141,17 @@ function closeEscape(evt) {
 //formPopupProfile.addEventListener("submit", submitEditProfileForm);
 
 closeAddCardPopupButton.addEventListener("click", function () {
-  closePopup(popupAddCard);
+  addCardPopup.close();
   removeValidationErrors(popupAddCard);
   formPopupAdd.reset();
 });
 
 closePopupPreviewButton.addEventListener("click", () =>
-  closePopup(popupPreview)
+  openCardPopup.close()
 );
 
 closeEditProfilePopupButton.addEventListener("click", function () {
-  closePopup(popupEditProfile);
+  editProfilePopup.close();
 });
 
 // [/*popupEditProfile*/, popupPreview, /*popupAddCard*/].forEach((popup) => {
@@ -180,19 +180,19 @@ const configValidator = {
   errorClass: "popup__input-error_active",
 };
 
-// const profileEditFormValidator = new FormValidator(
-//   configValidator,
-//   document.querySelector('form[name="profile-name"]')
-// );
-//
-// profileEditFormValidator.enableValidation();
+const profileEditFormValidator = new FormValidator(
+  configValidator,
+  document.querySelector('form[name="profile-name"]')
+);
 
-// const profileAddFormValidator = new FormValidator(
-//   configValidator,
-//   document.querySelector(".popup__form_type_add")
-// );
-//
-// profileAddFormValidator.enableValidation();
+profileEditFormValidator.enableValidation();
+
+const profileAddFormValidator = new FormValidator(
+  configValidator,
+  document.querySelector(".popup__form_type_add")
+);
+
+profileAddFormValidator.enableValidation();
 
 
 
