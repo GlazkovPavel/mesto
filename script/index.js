@@ -18,12 +18,12 @@ import {
   titleAdd,
   linkAdd,
   cardList,
-  popupPreview,
-  popupPreviewImg,
-  popupPreviewTitle,
+  //popupPreview,
+  //popupPreviewImg,
+  //popupPreviewTitle,
 } from "./data.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-
+import PopupWithImage from "../components/PopupWithImage.js";
 
 const initialCards = [
   {
@@ -51,11 +51,15 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
+const openCardPopup = new PopupWithImage('.popup_type_preview')
+
 
 const cardSection = new Section({
   items: initialCards,
   renderer: (data) => {
-    const card = new Card(data.name, data.link, "#card-templete");
+    const card = new Card(data.name, data.link, "#card-templete", ()=>{
+      openCardPopup.open(data);
+    });
     return card.render();
   }
 }, '.element__grid');
@@ -84,10 +88,10 @@ const editProfilePopup = new PopupWithForm('.popup_type_profile', (profileData) 
 
 editProfilePopup.setEventListeners();
 
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closeEscape);
-}
+// function openPopup(popup) {
+//   popup.classList.add("popup_opened");
+//   document.addEventListener("keydown", closeEscape);
+// }
 openEditProfilePopupButton.addEventListener("click", function () {
   //formPopupProfile.reset();
   //removeValidationErrors(popupEditProfile);
@@ -103,18 +107,22 @@ openAddCardPopupButton.addEventListener("click", function () {
   //removeValidationErrors(addCardPopup);
   //profileAddFormValidator.toggleButtonState();
 });
+
+
+// function openCardPopup(eve) {
+//   eve.preventDefault();
+//   popupPreviewImg.src = this._link;
+//   popupPreviewImg.alt = this._name;
+//   popupPreviewTitle.textContent = this._name;
+//   popupPreview.open();
+// }
+
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeEscape);
 }
 
-function openCardPopup(eve) {
-  eve.preventDefault();
-  popupPreviewImg.src = this._link;
-  popupPreviewImg.alt = this._name;
-  popupPreviewTitle.textContent = this._name;
-  openPopup(popupPreview);
-}
+
 
 // function submitEditProfileForm(evt) {
 //   evt.preventDefault();
@@ -146,13 +154,13 @@ closeEditProfilePopupButton.addEventListener("click", function () {
   closePopup(popupEditProfile);
 });
 
-[/*popupEditProfile*/, popupPreview, /*popupAddCard*/].forEach((popup) => {
-  popup.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("popup_opened")) {
-      closePopup(popup);
-    }
-  });
-});
+// [/*popupEditProfile*/, popupPreview, /*popupAddCard*/].forEach((popup) => {
+//   popup.addEventListener("click", (evt) => {
+//     if (evt.target.classList.contains("popup_opened")) {
+//       closePopup(popup);
+//     }
+//   });
+// });
 
 const removeValidationErrors = (popup) => {
   const formList = Array.from(popup.querySelectorAll(".popup__input-error"));
