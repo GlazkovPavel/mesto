@@ -1,6 +1,6 @@
 export class Card {
-  constructor(name, link, templateSelector, handleCardClick) {
-    this._name = name;
+  constructor(title, link, templateSelector, handleCardClick) {
+    this._title = title;
     this._link = link;
     this._templateSelector = templateSelector;
     this.handleCardClick = handleCardClick;
@@ -31,7 +31,7 @@ export class Card {
     this._cardElement = this._makeElements();
     this._setEventListener();
 
-    this._cardElement.querySelector('.element__description-text').textContent = this._name;
+    this._cardElement.querySelector('.element__description-text').textContent = this._title;
     this._previewImg.src = this._link;
 
     return this._cardElement;

@@ -28,27 +28,27 @@ import UserInfo from "../components/UserInfo.js";
 
 const initialCards = [
   {
-    name: "Архыз",
+    title: "Архыз",
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
   },
   {
-    name: "Челябинская область",
+    title: "Челябинская область",
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
   },
   {
-    name: "Иваново",
+    title: "Иваново",
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
   },
   {
-    name: "Камчатка",
+    title: "Камчатка",
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
   },
   {
-    name: "Холмогорский район",
+    title: "Холмогорский район",
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
   },
   {
-    name: "Байкал",
+    title: "Байкал",
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
@@ -58,7 +58,7 @@ const openPopupEdit = new UserInfo({title, subtitle}, {nameInput, jobInput});
 const cardSection = new Section({
   items: initialCards,
   renderer: (data) => {
-    const card = new Card(data.name, data.link, "#card-templete", ()=>{
+    const card = new Card(data.title, data.link, "#card-templete", ()=>{
       openCardPopup.open(data);
 
     });
@@ -114,28 +114,10 @@ openAddCardPopupButton.addEventListener("click", function () {
   profileAddFormValidator.toggleButtonState();
 });
 
-
-// function openCardPopup(eve) {
-//   eve.preventDefault();
-//   popupPreviewImg.src = this._link;
-//   popupPreviewImg.alt = this._name;
-//   popupPreviewTitle.textContent = this._name;
-//   popupPreview.open();
-// }
-
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeEscape);
 }
-
-
-
-// function submitEditProfileForm(evt) {
-//   evt.preventDefault();
-//   title.textContent = nameInput.value;
-//   subtitle.textContent = jobInput.value;
-//   closePopup(popupEditProfile);
-// }
 
 function closeEscape(evt) {
   if (evt.key === "Escape") {
