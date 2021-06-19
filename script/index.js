@@ -52,7 +52,8 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
-const openCardPopup = new PopupWithImage('.popup_type_preview')
+const openCardPopup = new PopupWithImage('.popup_type_preview');
+openCardPopup.setEventListeners();
 const openPopupEdit = new UserInfo({title, subtitle}, {nameInput, jobInput});
 
 const cardSection = new Section({
