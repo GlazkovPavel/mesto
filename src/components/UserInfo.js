@@ -16,5 +16,4 @@ export default class UserInfo{
      this._titleSelector.textContent = data.name;
      this._subtitleSelector.textContent = data.job;
   }
-
 }

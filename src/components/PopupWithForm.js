@@ -6,8 +6,6 @@ export default class PopupWithForm extends Popup{
     this._onSubmitCb = onSubmitCb;
 
     this._formElement = this.popupElement.querySelector('.popup__form');
-    //this._titleInputElement = this._formElement.querySelector('.popup__item_title_add');
-    //this._linkInputElement = this._formElement.querySelector('.popup__item_type_foto');
   }
   _getInputValues() {
     const result = {};

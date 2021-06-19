@@ -15,12 +15,6 @@ import {
   jobInput,
   title,
   subtitle,
-  titleAdd,
-  linkAdd,
-  cardList,
-  //popupPreview,
-  //popupPreviewImg,
-  //popupPreviewTitle,
 } from "./data.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -69,16 +63,6 @@ const cardSection = new Section({
 
 cardSection.rendererAll();
 
-
-
-// function submitAddCardForm(evt) {
-//   evt.preventDefault();
-//   const card = new Card(`${titleAdd.value}`, `${linkAdd.value}`, '#card-templete', openCardPopup);
-//   cardSection.addItem(card.render());
-//   closePopup(popupAddCard);
-// }
-// formPopupAdd.addEventListener("submit", submitAddCardForm);
-
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
   cardSection.addItem(cardData);
   addCardPopup.close();
@@ -93,18 +77,11 @@ const editProfilePopup = new PopupWithForm('.popup_type_profile', (data) => {
 
 editProfilePopup.setEventListeners();
 
-// function openPopup(popup) {
-//   popup.classList.add("popup_opened");
-//   document.addEventListener("keydown", closeEscape);
-// }
 openEditProfilePopupButton.addEventListener("click", function () {
   formPopupProfile.reset();
   removeValidationErrors(popupEditProfile);
   editProfilePopup.open();
   openPopupEdit.getUserInfo()
-
-  // nameInput.value = title.textContent;
-  // jobInput.value = subtitle.textContent;
   profileEditFormValidator.toggleButtonState();
 });
 
@@ -127,8 +104,6 @@ function closeEscape(evt) {
   }
 }
 
-//formPopupProfile.addEventListener("submit", submitEditProfileForm);
-
 closeAddCardPopupButton.addEventListener("click", function () {
   addCardPopup.close();
   removeValidationErrors(popupAddCard);
@@ -142,14 +117,6 @@ closePopupPreviewButton.addEventListener("click", () =>
 closeEditProfilePopupButton.addEventListener("click", function () {
   editProfilePopup.close();
 });
-
-// [/*popupEditProfile*/, popupPreview, /*popupAddCard*/].forEach((popup) => {
-//   popup.addEventListener("click", (evt) => {
-//     if (evt.target.classList.contains("popup_opened")) {
-//       closePopup(popup);
-//     }
-//   });
-// });
 
 const removeValidationErrors = (popup) => {
   const formList = Array.from(popup.querySelectorAll(".popup__input-error"));
