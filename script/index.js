@@ -11,10 +11,10 @@ import {
   closePopupPreviewButton,
   formPopupProfile,
   formPopupAdd,
-  //nameInput,
+  nameInput,
   jobInput,
-  //title,
-  //subtitle,
+  title,
+  subtitle,
   titleAdd,
   linkAdd,
   cardList,
@@ -24,6 +24,7 @@ import {
 } from "./data.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 
 const initialCards = [
   {
@@ -52,19 +53,22 @@ const initialCards = [
   },
 ];
 const openCardPopup = new PopupWithImage('.popup_type_preview')
-
+const openPopupEdit = new UserInfo({title, subtitle}, {nameInput, jobInput});
 
 const cardSection = new Section({
   items: initialCards,
   renderer: (data) => {
     const card = new Card(data.name, data.link, "#card-templete", ()=>{
       openCardPopup.open(data);
+
     });
     return card.render();
   }
 }, '.element__grid');
 
 cardSection.rendererAll();
+
+
 
 // function submitAddCardForm(evt) {
 //   evt.preventDefault();
@@ -81,8 +85,8 @@ const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
 
 addCardPopup.setEventListeners();
 
-const editProfilePopup = new PopupWithForm('.popup_type_profile', (profileData) => {
-  //cardSection.addItem(profileData);
+const editProfilePopup = new PopupWithForm('.popup_type_profile', (data) => {
+  openPopupEdit.setUserInfo(data);
   editProfilePopup.close();
 })
 
@@ -96,6 +100,8 @@ openEditProfilePopupButton.addEventListener("click", function () {
   formPopupProfile.reset();
   removeValidationErrors(popupEditProfile);
   editProfilePopup.open();
+  openPopupEdit.getUserInfo()
+
   // nameInput.value = title.textContent;
   // jobInput.value = subtitle.textContent;
   profileEditFormValidator.toggleButtonState();
