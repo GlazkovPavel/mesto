@@ -8,11 +8,11 @@
 <body>
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/mesto.svg" alt="Место">
+      <img class="header__logo" src="<%=require('./images/mesto.svg')%>" alt="Место">
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__foto" src="./images/profile.jpg" alt="Фото профиля">
+        <img class="profile__foto" src="<%=require('./images/profile.jpg')%>" alt="Фото профиля">
         <div class="profile__container-text">
           <h1 class="profile__title" >Жак-Ив Кусто</h1>
           <p class="profile__subtitle">Исследователь океана</p>
@@ -74,6 +74,5 @@
       </div>
     </li>
   </template>
-  <script type="module" src="script/index.js"></script>
 </body>
 </html>
