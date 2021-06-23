@@ -12,6 +12,4 @@ https://glazkovpavel.github.io/mesto/
 * Адаптивной верстки
 * DOM
 * JavaScript
-* ООП
-* Webpack
 
