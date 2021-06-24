@@ -75,38 +75,29 @@ editProfilePopup.setEventListeners();
 
 openEditProfilePopupButton.addEventListener("click", function () {
   formPopupProfile.reset();
-  removeValidationErrors(popupEditProfile);
   editProfilePopup.open();
   const data = openPopupEdit.getUserInfo();
   nameInput.value = data.nameSelector;
   jobInput.value = data.jobSelector;
+  profileEditFormValidator.removeValidationErrors();
   profileEditFormValidator.toggleButtonState();
 });
 
 openAddCardPopupButton.addEventListener("click", function () {
   formPopupAdd.reset();
   addCardPopup.open();
-  removeValidationErrors(popupAddCard);
+  profileAddFormValidator.removeValidationErrors();
   profileAddFormValidator.toggleButtonState();
 });
 
 
-const removeValidationErrors = (popup) => {
-  const formList = Array.from(popup.querySelectorAll(".popup__input-error"));
-  const itemList = Array.from(popup.querySelectorAll(".popup__item"));
-  formList.forEach((spanElement) => {
-    spanElement.textContent = " ";
-  });
-  itemList.forEach((itemElement) => {
-    itemElement.classList.remove("popup__item_type_error");
-  });
-};
 const configValidator = {
   formSelector: ".form",
   inputSelector: ".popup__item",
   submitButtonSelector: ".popup__save",
   inputErrorClass: "popup__item_type_error",
   errorClass: "popup__input-error_active",
+  inputError: "popup__input-error"
 };
 
 const profileEditFormValidator = new FormValidator(
