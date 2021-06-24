@@ -20,7 +20,6 @@ import {
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-
 const initialCards = [
   {
     title: "Архыз",
@@ -93,31 +92,6 @@ openAddCardPopupButton.addEventListener("click", function () {
   profileAddFormValidator.toggleButtonState();
 });
 
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeEscape);
-}
-
-function closeEscape(evt) {
-  if (evt.key === "Escape") {
-    const popupElement = document.querySelector(".popup_opened");
-    closePopup(popupElement);
-  }
-}
-
-closeAddCardPopupButton.addEventListener("click", function () {
-  addCardPopup.close();
-  removeValidationErrors(popupAddCard);
-  formPopupAdd.reset();
-});
-
-closePopupPreviewButton.addEventListener("click", () =>
-  openCardPopup.close()
-);
-
-closeEditProfilePopupButton.addEventListener("click", function () {
-  editProfilePopup.close();
-});
 
 const removeValidationErrors = (popup) => {
   const formList = Array.from(popup.querySelectorAll(".popup__input-error"));
