@@ -4,12 +4,9 @@ import { FormValidator } from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import {
   openEditProfilePopupButton,
-  closeEditProfilePopupButton,
   openAddCardPopupButton,
   popupAddCard,
   popupEditProfile,
-  closeAddCardPopupButton,
-  closePopupPreviewButton,
   formPopupProfile,
   formPopupAdd,
   nameInput,
@@ -48,10 +45,9 @@ const initialCards = [
 ];
 const openCardPopup = new PopupWithImage('.popup_type_preview');
 openCardPopup.setEventListeners();
-const openPopupEdit = new UserInfo({title, subtitle}, {nameInput, jobInput});
+const openPopupEdit = new UserInfo({title, subtitle});
 
 const cardSection = new Section({
-  items: initialCards,
   renderer: (data) => {
     const card = new Card(data.title, data.link, "#card-templete", ()=>{
       openCardPopup.open(data);
@@ -61,7 +57,7 @@ const cardSection = new Section({
   }
 }, '.element__grid');
 
-cardSection.rendererAll();
+cardSection.rendererAll(initialCards);
 
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
   cardSection.addItem(cardData);
@@ -81,7 +77,9 @@ openEditProfilePopupButton.addEventListener("click", function () {
   formPopupProfile.reset();
   removeValidationErrors(popupEditProfile);
   editProfilePopup.open();
-  openPopupEdit.getUserInfo()
+  const data = openPopupEdit.getUserInfo();
+  nameInput.value = data.nameSelector;
+  jobInput.value = data.jobSelector;
   profileEditFormValidator.toggleButtonState();
 });
 
