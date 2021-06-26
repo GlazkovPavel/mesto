@@ -14,14 +14,13 @@ export default class Popup {
   }
   close() {
     this.popupElement.classList.remove("popup_opened");
-    this.popupElement.querySelector('.popup__form').reset();
     document.removeEventListener("keydown", this._handleEscClose);
   }
   setEventListeners(){
     this._closeButton = this.popupElement.querySelector('.popup__close');
     this._closeButton.addEventListener('click', this.close.bind(this));
 
-    this.popupElement.addEventListener("click", (evt) => {
+    this.popupElement.addEventListener("mousedown", (evt) => {
     if (evt.target.classList.contains("popup_opened")) {
       this.close();
     }})

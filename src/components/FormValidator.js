@@ -56,14 +56,9 @@ export class FormValidator {
   }
 
   removeValidationErrors(){
-    const formList = Array.from(this._formElement.querySelectorAll(".popup__input-error"));
-    const itemList = Array.from(this._formElement.querySelectorAll(".popup__item"));
-    formList.forEach((spanElement) => {
-    spanElement.textContent = " ";
-  });
-  itemList.forEach((itemElement) => {
-    itemElement.classList.remove("popup__item_type_error");
-  });
+    this._inputList.forEach((itemElement) => {
+      this._hideInputError(itemElement)
+    });
   }
 
   enableValidation() {
