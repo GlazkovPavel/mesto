@@ -1,4 +1,3 @@
-
 export const openEditProfilePopupButton = document.querySelector('.profile__button-edit');
 export const closeEditProfilePopupButton = document.querySelector('.popup__close');
 export const openAddCardPopupButton = document.querySelector('.profile__button-add');
