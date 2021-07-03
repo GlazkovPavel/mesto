@@ -17,39 +17,24 @@ import {
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-const initialCards = [
-  {
-    title: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    title: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    title: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    title: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    title: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    title: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+import Api from "../components/Api.js"
+const options = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+  headers: {
+    authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc',
+    'Content-Type': 'application/json'
+  }
+}
+
+const api = new Api(options);
+
 const openCardPopup = new PopupWithImage('.popup_type_preview');
 openCardPopup.setEventListeners();
 const openPopupEdit = new UserInfo({title, subtitle});
 
 const cardSection = new Section({
   renderer: (data) => {
-    const card = new Card(data.title, data.link, "#card-templete", ()=>{
+    const card = new Card(data.name, data.link, "#card-templete", ()=>{
       openCardPopup.open(data);
 
     });
@@ -57,10 +42,26 @@ const cardSection = new Section({
   }
 }, '.element__grid');
 
-cardSection.rendererAll(initialCards);
+api.getInitialCards()
+  .then(data => {
+    cardSection.rendererAll(data);
+  })
+  .catch((err) => {
+    console.log(err); // выведем ошибку в консоль
+  });
+
+api.getUserInfoStart()
+  .then(data => {
+    title.textContent = data.name;
+    subtitle.textContent = data.about;
+  })
+  .catch((err) => {
+    console.log(err); // выведем ошибку в консоль
+  });
 
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
   cardSection.addItem(cardData);
+  api.setCardServer(cardData);
   addCardPopup.close();
 })
 
@@ -68,6 +69,7 @@ addCardPopup.setEventListeners();
 
 const editProfilePopup = new PopupWithForm('.popup_type_profile', (data) => {
   openPopupEdit.setUserInfo(data);
+  api.setUserInfoData(data);
   editProfilePopup.close();
 })
 

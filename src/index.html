@@ -14,8 +14,8 @@
       <section class="profile">
         <img class="profile__foto" src="<%=require('./images/profile.jpg')%>" alt="Фото профиля">
         <div class="profile__container-text">
-          <h1 class="profile__title" >Жак-Ив Кусто</h1>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <h1 class="profile__title" ></h1>
+          <p class="profile__subtitle"></p>
         </div>
         <button class="profile__button-edit" type="button"></button>
         <button class="profile__button-add" type="button"></button>
@@ -49,7 +49,7 @@
       <button class="popup__close popup__close_type_add" type="button"></button>
       <h2 class="popup__heading">Новое место</h2>
       <form class="popup__form popup__form_type_add form" type="form" name="profile-name" novalidate>
-          <input class="popup__item popup__item_title_add" id="text-input" type="text" name="title" placeholder="Название" required minlength="2" maxlength="30">
+          <input class="popup__item popup__item_title_add" id="text-input" type="text" name="name" placeholder="Название" required minlength="2" maxlength="30">
           <span class="text-input-error popup__input-error"></span>
           <input class="popup__item popup__item_type_foto" id="url-input" type="url"  name="link" placeholder="Ссылка на картинку" required>
           <span class="url-input-error popup__input-error"></span>
