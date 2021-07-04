@@ -42,6 +42,15 @@ const cardSection = new Section({
   }
 }, '.element__grid');
 
+// function removeCard(){
+//   const removeCardPopup = new PopupWithForm('.popup_type_remove', () =>{})
+//     removeCardPopup.open()
+//
+//     this._cardElement.remove();
+//     this._cardElement = null
+//
+// }
+
 api.getInitialCards()
   .then(data => {
     cardSection.rendererAll(data);

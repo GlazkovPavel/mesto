@@ -1,0 +1,13 @@
+.element__likes{
+  font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  justify-self: center;
+  height: 13px;
+  width: 10px;
+  padding-right: 18px;
+  margin: auto;
+
+}

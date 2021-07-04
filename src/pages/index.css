@@ -31,6 +31,7 @@
 @import url(../blocks/element/__description/element__description.css);
 @import url(../blocks/element/__description-text/element__description-text.css);
 @import url(../blocks/element/__description-like/element__description-like.css);
+@import url(../blocks/element/__likes/element__likes.css);
 @import url(../blocks/element/__container/element__container.css);
 @import url(../blocks/element/__description-like/_active/element__description-like_active.css);
 @import url(../blocks/element/__trash/element__trash.css);

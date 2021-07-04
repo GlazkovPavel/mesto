@@ -64,13 +64,23 @@
       <p class="popup__preview-subtitle"></p>
     </div>
   </div>
+  <div class="popup popup_type_remove">
+    <div class="popup__container">
+      <button class="popup__close popup__close_type_remove" type="button"></button>
+      <h2 class="popup__heading">Вы уверены?</h2>
+      <button class="popup__save popup__save_type_remove" type="submit">Да</button>
+    </div>
+  </div>
   <template id="card-templete">
     <li class="element__container">
       <img class="element__foto" src=" " alt="">
       <button class="element__trash"></button>
       <div class="element__description">
         <h2 class="element__description-text"></h2>
-        <button class="element__description-like" id="button" type="button"></button>
+        <div class="element__container-like">
+          <button class="element__description-like" id="button" type="button"></button>
+          <div class="element__likes">8</div>
+        </div>
       </div>
     </li>
   </template>

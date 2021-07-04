@@ -20,7 +20,19 @@ export class Card {
     this._previewImg.addEventListener('click', () => this.handleCardClick())
   }
   _handleLikeClick(){
-    this._likeButton.classList.toggle('element__description-like_active');
+    let like = true,
+      likeCount = Number(this._cardElement.querySelector('.element__likes').textContent);
+    like = likeCount;
+    if(this._likeButton.classList.contains('element__description-like_active')){
+      this._likeButton.classList.remove('element__description-like_active');
+      like -= 1;
+    }else{
+      like = like + 1;
+      this._likeButton.classList.add('element__description-like_active');
+    }
+    likeCount = like;
+    this._cardElement.querySelector('.element__likes').textContent = likeCount;
+
   }
   _handleRemoveClick(e){
     this._cardElement.remove();
