@@ -44,7 +44,6 @@ const cardSection = new Section({
 }, '.element__grid');
 
 //let myUserId = null;
-
 api.getInitialCards()
   .then(data => {
     cardSection.rendererAll(data);
