@@ -43,17 +43,7 @@ const cardSection = new Section({
   }
 }, '.element__grid');
 
-function handleCardDelete() {
-  const removeCardPopup = new Popup('.popup_type_remove')
-  removeCardPopup.open();
-  removeCardPopup.setEventListeners();
-  document.querySelector('.popup__save_type_remove').addEventListener('click', (e) => {
-    e.preventDefault();
-    this._cardElement.remove();
-    this._cardElement = null
-    removeCardPopup.close();
-  })
-}
+//let myUserId = null;
 
 api.getInitialCards()
   .then(data => {
@@ -71,6 +61,18 @@ api.getUserInfoStart()
   .catch((err) => {
     console.log(err); // выведем ошибку в консоль
   });
+
+function handleCardDelete() {
+  const removeCardPopup = new Popup('.popup_type_remove')
+  removeCardPopup.open();
+  removeCardPopup.setEventListeners();
+  document.querySelector('.popup__save_type_remove').addEventListener('click', (e) => {
+    e.preventDefault();
+    this._cardElement.remove();
+    this._cardElement = null
+    removeCardPopup.close();
+  })
+}
 
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
   cardSection.addItem(cardData);
