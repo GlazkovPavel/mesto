@@ -47,7 +47,8 @@ function handleCardDelete() {
   const removeCardPopup = new Popup('.popup_type_remove')
   removeCardPopup.open();
   removeCardPopup.setEventListeners();
-  document.querySelector('.popup__save_type_remove').addEventListener('click', () => {
+  document.querySelector('.popup__save_type_remove').addEventListener('click', (e) => {
+    e.preventDefault();
     this._cardElement.remove();
     this._cardElement = null
     removeCardPopup.close();
