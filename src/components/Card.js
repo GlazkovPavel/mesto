@@ -1,9 +1,10 @@
 export class Card {
-  constructor(name, link, templateSelector, handleCardClick) {
+  constructor(name, link, templateSelector, handleCardClick, handleRemoveClick) {
     this._title = name;
     this._link = link;
     this._templateSelector = templateSelector;
     this.handleCardClick = handleCardClick;
+    this.handleRemoveClick = handleRemoveClick;
   }
   _makeElements(){
     const cardTemplate = document.querySelector(this._templateSelector);
@@ -15,7 +16,7 @@ export class Card {
     this._trashButton = this._cardElement.querySelector('.element__trash');
     this._likeButton = this._cardElement.querySelector('.element__description-like');
     this._previewImg = this._cardElement.querySelector('.element__foto');
-    this._trashButton.addEventListener('click', (e) => this._handleRemoveClick(e))
+    this._trashButton.addEventListener('click', () => this.handleRemoveClick())
     this._likeButton.addEventListener('click', () => this._handleLikeClick())
     this._previewImg.addEventListener('click', () => this.handleCardClick())
   }
@@ -34,10 +35,7 @@ export class Card {
     this._cardElement.querySelector('.element__likes').textContent = likeCount;
 
   }
-  _handleRemoveClick(e){
-    this._cardElement.remove();
-    this._cardElement = null
-  }
+
 
   render() {
     this._cardElement = this._makeElements();

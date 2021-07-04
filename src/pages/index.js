@@ -2,6 +2,7 @@ import './index.css';
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import Section from "../components/Section.js";
+import Popup from "../components/Popup.js";
 import {
   openEditProfilePopupButton,
   openAddCardPopupButton,
@@ -37,19 +38,21 @@ const cardSection = new Section({
     const card = new Card(data.name, data.link, "#card-templete", ()=>{
       openCardPopup.open(data);
 
-    });
+    }, handleCardDelete);
     return card.render();
   }
 }, '.element__grid');
 
-// function removeCard(){
-//   const removeCardPopup = new PopupWithForm('.popup_type_remove', () =>{})
-//     removeCardPopup.open()
-//
-//     this._cardElement.remove();
-//     this._cardElement = null
-//
-// }
+function handleCardDelete() {
+  const removeCardPopup = new Popup('.popup_type_remove')
+  removeCardPopup.open();
+  removeCardPopup.setEventListeners();
+  document.querySelector('.popup__save_type_remove').addEventListener('click', () => {
+    this._cardElement.remove();
+    this._cardElement = null
+    removeCardPopup.close();
+  })
+}
 
 api.getInitialCards()
   .then(data => {
