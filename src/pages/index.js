@@ -19,23 +19,48 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js"
-const options = {
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+
+
+
+const api = new Api({
+  url: 'https://mesto.nomoreparties.co/v1/cohort-25',
   headers: {
     authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc',
     'Content-Type': 'application/json'
   }
-}
-
-const api = new Api(options);
+});
 
 const openCardPopup = new PopupWithImage('.popup_type_preview');
 openCardPopup.setEventListeners();
 const openPopupEdit = new UserInfo({title, subtitle});
 
+
+let myUserId = null;
+
+api.getUserInfoStart()
+  .then(data => {
+    myUserId = data._id;
+    title.textContent = data.name;
+    subtitle.textContent = data.about;
+  })
+  .then(() => {
+    api.getInitialCards()
+      .then(data => {
+        cardSection.rendererAll(data);
+      })
+      .catch((err) => {
+        console.log(err); // выведем ошибку в консоль
+      });
+  })
+  .catch((err) => {
+    console.log(err); // выведем ошибку в консоль
+  });
+
 const cardSection = new Section({
   renderer: (data) => {
-    const card = new Card(data.name, data.link, "#card-templete", ()=>{
+    const card = new Card({
+      data: {...data, myUserId}
+    }, "#card-templete", ()=>{
       openCardPopup.open(data);
 
     }, handleCardDelete);
@@ -43,23 +68,7 @@ const cardSection = new Section({
   }
 }, '.element__grid');
 
-//let myUserId = null;
-api.getInitialCards()
-  .then(data => {
-    cardSection.rendererAll(data);
-  })
-  .catch((err) => {
-    console.log(err); // выведем ошибку в консоль
-  });
 
-api.getUserInfoStart()
-  .then(data => {
-    title.textContent = data.name;
-    subtitle.textContent = data.about;
-  })
-  .catch((err) => {
-    console.log(err); // выведем ошибку в консоль
-  });
 
 function handleCardDelete() {
   const removeCardPopup = new Popup('.popup_type_remove')
@@ -74,10 +83,16 @@ function handleCardDelete() {
 }
 
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
-  cardSection.addItem(cardData);
-  api.setCardServer(cardData);
+  api.setCardServer(cardData)
+    .then(data => {cardSection.addItem(data);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+
   addCardPopup.close();
 })
+
 
 addCardPopup.setEventListeners();
 
@@ -132,4 +147,13 @@ profileAddFormValidator.enableValidation();
 
 
 
-
+// const popupFormElements = new PopupWithForm({(data) => {
+//     api.postCard(data)
+//       .then((res) => {
+//         cardList.setItem(createCard(res), true);
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//       })
+//   }
+// })

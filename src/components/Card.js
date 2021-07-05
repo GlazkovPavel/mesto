@@ -1,7 +1,9 @@
 export class Card {
-  constructor(name, link, templateSelector, handleCardClick, handleRemoveClick) {
-    this._title = name;
-    this._link = link;
+  constructor({data}, templateSelector, handleCardClick, handleRemoveClick) {
+    this._data = data;
+    this._title = data.name;
+    this._link = data.link;
+    this._currentUserId = data.myUserId;
     this._templateSelector = templateSelector;
     this.handleCardClick = handleCardClick;
     this.handleRemoveClick = handleRemoveClick;
@@ -44,6 +46,10 @@ export class Card {
     this._cardElement.querySelector('.element__description-text').textContent = this._title;
     this._previewImg.src = this._link;
     this._previewImg.alt = this._title;
+
+    if(!(this._data.owner._id === this._currentUserId)) {
+      this._trashButton.remove();
+    }
 
     return this._cardElement;
   }

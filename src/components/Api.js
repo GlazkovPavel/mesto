@@ -1,41 +1,38 @@
 export default class Api {
   constructor(config) {
-    //this.url = config.url;
-    //this.headers = config.headers;
+    this._url = config.url;
+    this._headers = config.headers;
   }
+
+  _getResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+
+
   getInitialCards() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-25/cards', {
+    return fetch(`${this._url}/cards`, {
       headers: {
         authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc'
       }
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._getResponse)
   }
+
+
   getUserInfoStart() {
-    return fetch('https://mesto.nomoreparties.co/v1/cohort-25/users/me', {
+    return fetch(`${this._url}/users/me`, {
       headers: {
         authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc'
       }
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        // если ошибка, отклоняем промис
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._getResponse)
   }
 
   setUserInfoData(data) {
-    fetch('https://mesto.nomoreparties.co/v1/cohort-25/users/me', {
+    fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
         authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc',
@@ -46,16 +43,11 @@ export default class Api {
         about: data.job
       })
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._getResponse)
   }
 
   setCardServer(data) {
-    fetch('https://mesto.nomoreparties.co/v1/cohort-25/cards', {
+    return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: {
         authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc',
@@ -66,12 +58,6 @@ export default class Api {
         link: data.link
       })
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      });
+      .then(this._getResponse)
   }
-
 }
