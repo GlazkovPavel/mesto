@@ -1,13 +1,15 @@
 export class Card {
-  constructor({data}, templateSelector, handleCardClick, handleRemoveClick) {
+  constructor({data}, templateSelector, handleCardClick, handleRemoveClick, api) {
     this._data = data;
     this._title = data.name;
     this._link = data.link;
     this._likes = this._data.likes;
+    this._id = data._id;
     this._currentUserId = data.myUserId;
     this._templateSelector = templateSelector;
     this.handleCardClick = handleCardClick;
     this.handleRemoveClick = handleRemoveClick;
+    this._api = api;
   }
   _makeElements(){
     const cardTemplate = document.querySelector(this._templateSelector);
@@ -23,30 +25,39 @@ export class Card {
     this._likeButton.addEventListener('click', () => this._handleLikeClick())
     this._previewImg.addEventListener('click', () => this.handleCardClick())
   }
-  _handleLikeClick(){
-    let like = true,
-      likeCount = this._likes.length;
-    like = likeCount;
+  _handleLikeClick(){                                                              //like function
     if(this._likeButton.classList.contains('element__description-like_active')){
-      this._likeButton.classList.remove('element__description-like_active');
-      like -= 1;
+      this._api.deleteLike(this._id)
+        .then((data) => {
+          this._likeButton.classList.remove('element__description-like_active');
+          this._cardElement.querySelector('.element__likes').textContent = data.likes.length;
+        })
     }else{
-      like = like + 1;
+      this._api.putLike(this._id)
+        .then((data) => {
+          this._likeButton.classList.add('element__description-like_active');
+          this._cardElement.querySelector('.element__likes').textContent = data.likes.length;
+        })
+    }
+  }
+
+  _checkMyLike(){                                                                    //checking my like
+    this._likes.some((item) => {
+      if(item._id === this._currentUserId) {
       this._likeButton.classList.add('element__description-like_active');
     }
-    likeCount = like;
-    this._cardElement.querySelector('.element__likes').textContent = likeCount;
-
+  })
   }
 
 
-  render() {
+  render() {                                                                         //card drawing
     this._cardElement = this._makeElements();
     this._setEventListener();
-
+    this._checkMyLike();
     this._cardElement.querySelector('.element__description-text').textContent = this._title;
     this._previewImg.src = this._link;
     this._previewImg.alt = this._title;
+
     this._cardElement.querySelector('.element__likes').textContent = this._likes.length;
 
     if(!(this._data.owner._id === this._currentUserId)) {

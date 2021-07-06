@@ -63,7 +63,7 @@ const cardSection = new Section({
     }, "#card-templete", ()=>{
       openCardPopup.open(data);
 
-    }, handleCardDelete);
+    }, handleCardDelete, api);
     return card.render();
   }
 }, '.element__grid');
@@ -144,16 +144,3 @@ const profileAddFormValidator = new FormValidator(
 );
 
 profileAddFormValidator.enableValidation();
-
-
-
-// const popupFormElements = new PopupWithForm({(data) => {
-//     api.postCard(data)
-//       .then((res) => {
-//         cardList.setItem(createCard(res), true);
-//       })
-//       .catch((err) => {
-//         console.error(err);
-//       })
-//   }
-// })

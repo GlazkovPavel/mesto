@@ -14,9 +14,7 @@ export default class Api {
 
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
-      headers: {
-        authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc'
-      }
+      headers: this._headers
     })
       .then(this._getResponse)
   }
@@ -24,9 +22,7 @@ export default class Api {
 
   getUserInfoStart() {
     return fetch(`${this._url}/users/me`, {
-      headers: {
-        authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc'
-      }
+      headers: this._headers
     })
       .then(this._getResponse)
   }
@@ -34,10 +30,7 @@ export default class Api {
   setUserInfoData(data) {
     fetch(`${this._url}/users/me`, {
       method: 'PATCH',
-      headers: {
-        authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc',
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         about: data.job
@@ -49,14 +42,27 @@ export default class Api {
   setCardServer(data) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
-      headers: {
-        authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc',
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         link: data.link
       })
+    })
+      .then(this._getResponse)
+  }
+
+  putLike(cardId) {
+    return fetch(`${this._url}/cards/likes/${cardId}`, {
+      method: 'PUT',
+      headers: this._headers
+    })
+      .then(this._getResponse)
+  }
+
+  deleteLike(cardId) {
+    return fetch(`${this._url}/cards/likes/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers
     })
       .then(this._getResponse)
   }
