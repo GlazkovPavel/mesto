@@ -38,6 +38,9 @@ export class Card {
           this._likeButton.classList.add('element__description-like_active');
           this._cardElement.querySelector('.element__likes').textContent = data.likes.length;
         })
+        .catch((err) => {
+          console.log(err); // выведем ошибку в консоль
+        });
     }
   }
 
@@ -53,6 +56,7 @@ export class Card {
   render() {                                                                         //card drawing
     this._cardElement = this._makeElements();
     this._setEventListener();
+
     this._checkMyLike();
     this._cardElement.querySelector('.element__description-text').textContent = this._title;
     this._previewImg.src = this._link;
