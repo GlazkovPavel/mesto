@@ -11,3 +11,6 @@ export const nameInput = document.querySelector('.popup__item_type_name');
 export const jobInput = document.querySelector('.popup__item_type_job');
 export const title = document.querySelector('.profile__title');
 export const subtitle = document.querySelector('.profile__subtitle');
+export const popupAvatar = document.querySelector('.popup_type_avatar');
+export const openPopupAvatar = document.querySelector('.profile__foto-edit');
+export const formPopupAvatar = document.querySelector('.popup__form_type_avatar');

@@ -10,10 +10,13 @@ import {
   popupEditProfile,
   formPopupProfile,
   formPopupAdd,
+  formPopupAvatar,
   nameInput,
   jobInput,
   title,
   subtitle,
+  popupAvatar,
+  openPopupAvatar,
 } from "../script/data.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -122,6 +125,25 @@ openAddCardPopupButton.addEventListener("click", function () {
 });
 
 
+// const popupAvatar = new PopupWithForm('.popup_type_avatar', (data) => {
+//   api.setCardServer(cardData)
+//     .then(data => {cardSection.addItem(data);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     }) //api
+//   popupAvatar.close();
+//   })
+// popupAvatar.setEventListeners();
+
+openPopupAvatar.addEventListener('click', () => {
+  formPopupAvatar.reset();
+  popupAvatar.open();
+  profileAvatarFormValidator.removeValidationErrors();
+  profileAvatarFormValidator.toggleButtonState();
+})
+
+
 const configValidator = {
   formSelector: ".form",
   inputSelector: ".popup__item",
@@ -144,3 +166,10 @@ const profileAddFormValidator = new FormValidator(
 );
 
 profileAddFormValidator.enableValidation();
+
+const profileAvatarFormValidator = new FormValidator(
+  configValidator,
+  document.querySelector('.popup__form_type_avatar')
+);
+
+profileAvatarFormValidator.enableValidation();
