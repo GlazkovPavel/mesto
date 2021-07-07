@@ -4,10 +4,13 @@
   border-radius: 50%;
   max-width: 120px;
   align-self: center;
+  transition: all .3s ease;
 }
+
 @media (max-width: 575px){
   .profile__foto {
     max-width: 180px;
+    margin: 0;
   }
 }
 @media (max-width: 320px){
