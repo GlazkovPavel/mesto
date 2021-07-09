@@ -13,6 +13,7 @@ import {
   formPopupAvatar,
   nameInput,
   jobInput,
+  userAvatar,
   title,
   subtitle,
   popupAvatar,
@@ -35,7 +36,7 @@ const api = new Api({
 
 const openCardPopup = new PopupWithImage('.popup_type_preview');
 openCardPopup.setEventListeners();
-const openPopupEdit = new UserInfo({title, subtitle});
+const openPopupEdit = new UserInfo({title, subtitle, userAvatar});
 
 
 let myUserId = null;
@@ -45,6 +46,7 @@ api.getUserInfoStart()
     myUserId = data._id;
     title.textContent = data.name;
     subtitle.textContent = data.about;
+    openPopupEdit.setUserAvatar(data);
   })
   .then(() => {
     api.getInitialCards()
@@ -125,20 +127,20 @@ openAddCardPopupButton.addEventListener("click", function () {
 });
 
 
-// const popupAvatar = new PopupWithForm('.popup_type_avatar', (data) => {
-//   api.setCardServer(cardData)
-//     .then(data => {cardSection.addItem(data);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     }) //api
-//   popupAvatar.close();
-//   })
-// popupAvatar.setEventListeners();
+const formAvatar= new PopupWithForm('.popup_type_avatar', (data) => {
+  api.changeAvatar(data)
+    .then(data => {userAvatar.setAttribute('src', data.avatar);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+  formAvatar.close();
+  })
+formAvatar.setEventListeners();
 
 openPopupAvatar.addEventListener('click', () => {
   formPopupAvatar.reset();
-  popupAvatar.open();
+  formAvatar.open();
   profileAvatarFormValidator.removeValidationErrors();
   profileAvatarFormValidator.toggleButtonState();
 })

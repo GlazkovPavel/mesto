@@ -14,3 +14,4 @@ export const subtitle = document.querySelector('.profile__subtitle');
 export const popupAvatar = document.querySelector('.popup_type_avatar');
 export const openPopupAvatar = document.querySelector('.profile__foto-edit');
 export const formPopupAvatar = document.querySelector('.popup__form_type_avatar');
+export const userAvatar = document.querySelector('.profile__foto');
