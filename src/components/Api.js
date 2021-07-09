@@ -11,14 +11,12 @@ export default class Api {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
       headers: this._headers
     })
       .then(this._getResponse)
   }
-
 
   getUserInfoStart() {
     return fetch(`${this._url}/users/me`, {
