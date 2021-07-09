@@ -1,0 +1,999 @@
+Index: src/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"ru\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>mesto</title>\n</head>\n<body>\n  <div class=\"page\">\n    <header class=\"header\">\n      <img class=\"header__logo\" src=\"<%=require('./images/mesto.svg')%>\" alt=\"Место\">\n    </header>\n    <main class=\"content\">\n      <section class=\"profile\">\n        <div class=\"profile__foto-container\">\n          <figure class=\"profile__foto-edit\"></figure>\n          <img class=\"profile__foto\" src=\"<%=require('./images/profile.jpg')%>\" alt=\"Фото профиля\">\n        </div>\n        <div class=\"profile__container-text\">\n          <h1 class=\"profile__title\" ></h1>\n          <p class=\"profile__subtitle\"></p>\n        </div>\n        <button class=\"profile__button-edit\" type=\"button\"></button>\n        <button class=\"profile__button-add\" type=\"button\"></button>\n      </section>\n                                <!-- ceкция ELEMENTS-->\n      <section class=\"element\">\n        <ul class=\"element__grid\">\n\n        </ul>\n      </section>\n    </main>\n    <footer class=\"footer\">\n      <p class=\"footer__copyright\">&copy; 2021 Mesto Russia</p>\n    </footer>\n  </div>\n  <div class=\"popup popup_type_profile\">\n    <div class=\"popup__container\">\n      <button class=\"popup__close\" type=\"button\"></button>\n      <h2 class=\"popup__heading\">Редактировать профиль</h2>\n      <form class=\"popup__form form\" name=\"profile-name\" type=\"form\" novalidate>\n          <input class=\"popup__item popup__item_type_name\" id=\"text-input-name\" type=\"text\" name=\"name\" placeholder=\"Ваше имя\" required minlength=\"2\" maxlength=\"40\">\n          <span class=\"text-input-name-error popup__input-error\"></span>\n          <input class=\"popup__item popup__item_type_job\" id=\"text-input-job\" type=\"text\" name=\"job\" placeholder=\"Ваше призвание\" required minlength=\"2\" maxlength=\"200\">\n          <span class=\"text-input-job-error popup__input-error\"></span>\n          <button class=\"popup__save popup__save_type_profile\" type=\"submit\">Сохранение...</button>\n      </form>\n    </div>\n  </div>\n  <div class=\"popup popup_type_add\">\n    <div class=\"popup__container\">\n      <button class=\"popup__close popup__close_type_add\" type=\"button\"></button>\n      <h2 class=\"popup__heading\">Новое место</h2>\n      <form class=\"popup__form popup__form_type_add form\" type=\"form\" name=\"profile-name\" novalidate>\n          <input class=\"popup__item popup__item_title_add\" id=\"text-input\" type=\"text\" name=\"name\" placeholder=\"Название\" required minlength=\"2\" maxlength=\"30\">\n          <span class=\"text-input-error popup__input-error\"></span>\n          <input class=\"popup__item popup__item_type_foto\" id=\"url-input\" type=\"url\"  name=\"link\" placeholder=\"Ссылка на картинку\" required>\n          <span class=\"url-input-error popup__input-error\"></span>\n          <button class=\"popup__save popup__save_type_add\" type=\"submit\">Сохранение...</button>\n      </form>\n    </div>\n  </div>\n  <div class=\"popup popup_type_preview\">\n    <div class=\"popup__preview-container\">\n      <span class=\"popup__close popup__close_type_preview\"></span>\n      <img class=\"popup__preview-img\" src=\" \" alt=\" \">\n      <p class=\"popup__preview-subtitle\"></p>\n    </div>\n  </div>\n  <div class=\"popup popup_type_remove\">\n    <div class=\"popup__container\">\n      <button class=\"popup__close popup__close_type_remove\" type=\"button\"></button>\n      <h2 class=\"popup__heading\">Вы уверены?</h2>\n      <form class=\"popup__form popup__form_type_add form\" type=\"form\">\n        <button class=\"popup__save popup__save_type_remove\" type=\"submit\">Да</button>\n      </form>\n    </div>\n  </div>\n  <div class=\"popup popup_type_avatar\">\n    <div class=\"popup__container\">\n      <button class=\"popup__close popup__close_type_avatar\" type=\"button\"></button>\n      <h2 class=\"popup__heading\">Обновить аватар</h2>\n      <form class=\"popup__form popup__form_type_avatar form\" type=\"form\" name=\"profile-name\" novalidate>\n        <input class=\"popup__item popup__item_type_foto\" id=\"url-input\" type=\"url\"  name=\"link\" placeholder=\"Ссылка на фото\" required>\n        <span class=\"url-input-error popup__input-error\"></span>\n        <button class=\"popup__save popup__save_type_avatar\" type=\"submit\">Сохранить</button>\n      </form>\n    </div>\n  </div>\n  <template id=\"card-templete\">\n    <li class=\"element__container\">\n      <img class=\"element__foto\" src=\" \" alt=\"\">\n      <button class=\"element__trash\"></button>\n      <div class=\"element__description\">\n        <h2 class=\"element__description-text\"></h2>\n        <div class=\"element__container-like\">\n          <button class=\"element__description-like\" id=\"button\" type=\"button\"></button>\n          <div class=\"element__likes\"></div>\n        </div>\n      </div>\n    </li>\n  </template>\n</body>\n</html>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/index.html b/src/index.html
+--- a/src/index.html	(revision 57c3ab1759c5142f289ffeae79c5037321d97017)
++++ b/src/index.html	(date 1625860879367)
+@@ -81,8 +81,8 @@
+       <button class="popup__close popup__close_type_avatar" type="button"></button>
+       <h2 class="popup__heading">Обновить аватар</h2>
+       <form class="popup__form popup__form_type_avatar form" type="form" name="profile-name" novalidate>
+-        <input class="popup__item popup__item_type_foto" id="url-input" type="url"  name="link" placeholder="Ссылка на фото" required>
+-        <span class="url-input-error popup__input-error"></span>
++        <input class="popup__item popup__item_type_foto" id="url-inputAvatar" type="url"  name="link" placeholder="Ссылка на фото" required>
++        <span class="url-inputAvatar-error popup__input-error"></span>
+         <button class="popup__save popup__save_type_avatar" type="submit">Сохранить</button>
+       </form>
+     </div>
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml
+new file mode 100644
+--- /dev/null	(date 1625860880099)
++++ b/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml	(date 1625860880099)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]" date="1625859610337" recycled="true" deleted="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Update at 09.07.2021, 22:40 [Default Changelist]" />
++</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch
+new file mode 100644
+--- /dev/null	(date 1625860761139)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch	(date 1625860761139)
+@@ -0,0 +1,139 @@
++Index: README.md
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/README.md b/README.md
++--- a/README.md	(revision 57c3ab1759c5142f289ffeae79c5037321d97017)
+++++ b/README.md	(date 1625859085766)
++@@ -12,4 +12,6 @@
++ * Адаптивной верстки
++ * DOM
++ * JavaScript
+++* ООП
+++* Webpack
++
++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
++new file mode 100644
++--- /dev/null	(date 1625859066797)
+++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch	(date 1625859066797)
++@@ -0,0 +1,58 @@
+++Index: README.md
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/README.md b/README.md
+++--- a/README.md	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
++++++ b/README.md	(date 1625858927507)
+++@@ -12,4 +12,6 @@
+++ * Адаптивной верстки
+++ * DOM
+++ * JavaScript
++++* ООП
++++* Webpack
+++
+++Index: .idea/workspace.xml
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+++--- a/.idea/workspace.xml	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
++++++ b/.idea/workspace.xml	(date 1625858968992)
+++@@ -1,7 +1,10 @@
+++ <?xml version="1.0" encoding="UTF-8"?>
+++ <project version="4">
+++   <component name="ChangeListManager">
+++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
++++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
++++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
++++    </list>
+++     <option name="SHOW_DIALOG" value="false" />
+++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+++@@ -38,7 +41,7 @@
+++     <property name="nodejs_package_manager_path" value="npm" />
+++     <property name="vue.rearranger.settings.migration" value="true" />
+++   </component>
+++-  <component name="RunManager" selected="npm.dev (1)">
++++  <component name="RunManager" selected="npm.build">
+++     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+++       <package-json value="package.json" />
+++       <command value="run" />
+++@@ -81,8 +84,8 @@
+++     </configuration>
+++     <recent_temporary>
+++       <list>
+++-        <item itemvalue="npm.dev (1)" />
+++         <item itemvalue="npm.build" />
++++        <item itemvalue="npm.dev (1)" />
+++         <item itemvalue="npm.dev" />
+++         <item itemvalue="npm.build (1)" />
+++         <item itemvalue="npm.dev (1)" />
++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
++new file mode 100644
++--- /dev/null	(date 1625859167926)
+++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml	(date 1625859167926)
++@@ -0,0 +1,4 @@
+++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]" date="1625859110680" recycled="true" deleted="true">
+++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch" />
+++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:31 [Default Changelist]" />
+++</changelist>
++\ No newline at end of file
++Index: .idea/workspace.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/components/Api.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/Api.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/pages/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pages/index.js\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.build\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
++--- a/.idea/workspace.xml	(revision 57c3ab1759c5142f289ffeae79c5037321d97017)
+++++ b/.idea/workspace.xml	(date 1625859330475)
++@@ -3,9 +3,7 @@
++   <component name="ChangeListManager">
++     <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
++       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/src/components/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
++-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
++     </list>
++     <option name="SHOW_DIALOG" value="false" />
++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
++@@ -18,7 +16,7 @@
++   <component name="Git.Settings">
++     <option name="RECENT_BRANCH_BY_REPOSITORY">
++       <map>
++-        <entry key="$PROJECT_DIR$" value="Проектная_работа_9" />
+++        <entry key="$PROJECT_DIR$" value="navs" />
++       </map>
++     </option>
++     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++@@ -90,7 +88,7 @@
++         <item itemvalue="npm.build" />
++         <item itemvalue="npm.dev" />
++         <item itemvalue="npm.build (1)" />
++-        <item itemvalue="npm.build" />
+++        <item itemvalue="npm.dev (1)" />
++       </list>
++     </recent_temporary>
++   </component>
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml
+new file mode 100644
+--- /dev/null	(date 1625860880004)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml	(date 1625860880004)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]" date="1625859579193" recycled="true" deleted="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:39 [Default Changelist]" />
++</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_59__Default_Changelist_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_59__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_59__Default_Changelist_.xml
+new file mode 100644
+--- /dev/null	(date 1625860879955)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_59__Default_Changelist_.xml	(date 1625860879955)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_59_[Default_Changelist]" date="1625860768633" recycled="true" deleted="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_59_[Default_Changelist]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:59 [Default Changelist]" />
++</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_59_[Default_Changelist]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_59_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_59_[Default_Changelist]/shelved.patch
+new file mode 100644
+--- /dev/null	(date 1625860760717)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_59_[Default_Changelist]/shelved.patch	(date 1625860760717)
+@@ -0,0 +1,482 @@
++Index: src/index.html
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><!DOCTYPE html>\n<html lang=\"ru\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>mesto</title>\n</head>\n<body>\n  <div class=\"page\">\n    <header class=\"header\">\n      <img class=\"header__logo\" src=\"<%=require('./images/mesto.svg')%>\" alt=\"Место\">\n    </header>\n    <main class=\"content\">\n      <section class=\"profile\">\n        <div class=\"profile__foto-container\">\n          <figure class=\"profile__foto-edit\"></figure>\n          <img class=\"profile__foto\" src=\"<%=require('./images/profile.jpg')%>\" alt=\"Фото профиля\">\n        </div>\n        <div class=\"profile__container-text\">\n          <h1 class=\"profile__title\" ></h1>\n          <p class=\"profile__subtitle\"></p>\n        </div>\n        <button class=\"profile__button-edit\" type=\"button\"></button>\n        <button class=\"profile__button-add\" type=\"button\"></button>\n      </section>\n                                <!-- ceкция ELEMENTS-->\n      <section class=\"element\">\n        <ul class=\"element__grid\">\n\n        </ul>\n      </section>\n    </main>\n    <footer class=\"footer\">\n      <p class=\"footer__copyright\">&copy; 2021 Mesto Russia</p>\n    </footer>\n  </div>\n  <div class=\"popup popup_type_profile\">\n    <div class=\"popup__container\">\n      <button class=\"popup__close\" type=\"button\"></button>\n      <h2 class=\"popup__heading\">Редактировать профиль</h2>\n      <form class=\"popup__form form\" name=\"profile-name\" type=\"form\" novalidate>\n          <input class=\"popup__item popup__item_type_name\" id=\"text-input-name\" type=\"text\" name=\"name\" placeholder=\"Ваше имя\" required minlength=\"2\" maxlength=\"40\">\n          <span class=\"text-input-name-error popup__input-error\"></span>\n          <input class=\"popup__item popup__item_type_job\" id=\"text-input-job\" type=\"text\" name=\"job\" placeholder=\"Ваше призвание\" required minlength=\"2\" maxlength=\"200\">\n          <span class=\"text-input-job-error popup__input-error\"></span>\n          <button class=\"popup__save popup__save_type_profile\" type=\"submit\">Сохранение...</button>\n      </form>\n    </div>\n  </div>\n  <div class=\"popup popup_type_add\">\n    <div class=\"popup__container\">\n      <button class=\"popup__close popup__close_type_add\" type=\"button\"></button>\n      <h2 class=\"popup__heading\">Новое место</h2>\n      <form class=\"popup__form popup__form_type_add form\" type=\"form\" name=\"profile-name\" novalidate>\n          <input class=\"popup__item popup__item_title_add\" id=\"text-input\" type=\"text\" name=\"name\" placeholder=\"Название\" required minlength=\"2\" maxlength=\"30\">\n          <span class=\"text-input-error popup__input-error\"></span>\n          <input class=\"popup__item popup__item_type_foto\" id=\"url-input\" type=\"url\"  name=\"link\" placeholder=\"Ссылка на картинку\" required>\n          <span class=\"url-input-error popup__input-error\"></span>\n          <button class=\"popup__save popup__save_type_add\" type=\"submit\">Сохранение...</button>\n      </form>\n    </div>\n  </div>\n  <div class=\"popup popup_type_preview\">\n    <div class=\"popup__preview-container\">\n      <span class=\"popup__close popup__close_type_preview\"></span>\n      <img class=\"popup__preview-img\" src=\" \" alt=\" \">\n      <p class=\"popup__preview-subtitle\"></p>\n    </div>\n  </div>\n  <div class=\"popup popup_type_remove\">\n    <div class=\"popup__container\">\n      <button class=\"popup__close popup__close_type_remove\" type=\"button\"></button>\n      <h2 class=\"popup__heading\">Вы уверены?</h2>\n      <form class=\"popup__form popup__form_type_add form\" type=\"form\">\n        <button class=\"popup__save popup__save_type_remove\" type=\"submit\">Да</button>\n      </form>\n    </div>\n  </div>\n  <div class=\"popup popup_type_avatar\">\n    <div class=\"popup__container\">\n      <button class=\"popup__close popup__close_type_avatar\" type=\"button\"></button>\n      <h2 class=\"popup__heading\">Обновить аватар</h2>\n      <form class=\"popup__form popup__form_type_avatar form\" type=\"form\" name=\"profile-name\" novalidate>\n        <input class=\"popup__item popup__item_type_foto\" id=\"url-input\" type=\"url\"  name=\"link\" placeholder=\"Ссылка на фото\" required>\n        <span class=\"url-input-error popup__input-error\"></span>\n        <button class=\"popup__save popup__save_type_avatar\" type=\"submit\">Сохранить</button>\n      </form>\n    </div>\n  </div>\n  <template id=\"card-templete\">\n    <li class=\"element__container\">\n      <img class=\"element__foto\" src=\" \" alt=\"\">\n      <button class=\"element__trash\"></button>\n      <div class=\"element__description\">\n        <h2 class=\"element__description-text\"></h2>\n        <div class=\"element__container-like\">\n          <button class=\"element__description-like\" id=\"button\" type=\"button\"></button>\n          <div class=\"element__likes\"></div>\n        </div>\n      </div>\n    </li>\n  </template>\n</body>\n</html>\n
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/src/index.html b/src/index.html
++--- a/src/index.html	(revision 0e8b0128ef1974bec40fb4d15ae5baa88c0326a2)
+++++ b/src/index.html	(date 1625860312480)
++@@ -54,8 +54,8 @@
++       <form class="popup__form popup__form_type_add form" type="form" name="profile-name" novalidate>
++           <input class="popup__item popup__item_title_add" id="text-input" type="text" name="name" placeholder="Название" required minlength="2" maxlength="30">
++           <span class="text-input-error popup__input-error"></span>
++-          <input class="popup__item popup__item_type_foto" id="url-input" type="url"  name="link" placeholder="Ссылка на картинку" required>
++-          <span class="url-input-error popup__input-error"></span>
+++          <input class="popup__item popup__item_type_foto" id="url-inputAvatar" type="url"  name="link" placeholder="Ссылка на картинку" required>
+++          <span class="url-inputAvatar-error popup__input-error"></span>
++           <button class="popup__save popup__save_type_add" type="submit">Сохранение...</button>
++       </form>
++     </div>
++Index: src/pages/index.js
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+>import './index.css';\nimport { Card } from \"../components/Card.js\";\nimport { FormValidator } from \"../components/FormValidator.js\";\nimport Section from \"../components/Section.js\";\nimport Popup from \"../components/Popup.js\";\nimport {\n  openEditProfilePopupButton,\n  openAddCardPopupButton,\n  popupAddCard,\n  popupEditProfile,\n  formPopupProfile,\n  formPopupAdd,\n  formPopupAvatar,\n  nameInput,\n  jobInput,\n  userAvatar,\n  title,\n  subtitle,\n  popupAvatar,\n  openPopupAvatar,\n} from \"../script/data.js\";\nimport PopupWithForm from \"../components/PopupWithForm.js\";\nimport PopupWithImage from \"../components/PopupWithImage.js\";\nimport UserInfo from \"../components/UserInfo.js\";\nimport Api from \"../components/Api.js\"\n\nconst api = new Api({\n  url: 'https://mesto.nomoreparties.co/v1/cohort-25',\n  headers: {\n    authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc',\n    'Content-Type': 'application/json'\n  }\n});\n\nconst openCardPopup = new PopupWithImage('.popup_type_preview');\nopenCardPopup.setEventListeners();\nconst openPopupEdit = new UserInfo({title, subtitle, userAvatar});\n\n\nlet myUserId = null;\n\napi.getUserInfoStart()\n  .then(data => {\n    myUserId = data._id;\n    title.textContent = data.name;\n    subtitle.textContent = data.about;\n    openPopupEdit.setUserAvatar(data);\n  })\n  .then(() => {\n    api.getInitialCards()\n      .then(data => {\n        cardSection.rendererAll(data);\n      })\n      .catch((err) => {\n        console.log(err); // выведем ошибку в консоль\n      });\n  })\n  .catch((err) => {\n    console.log(err); // выведем ошибку в консоль\n  });\n\nconst cardSection = new Section({\n  renderer: (data) => {\n    const card = new Card({\n      data: {...data, myUserId}\n    }, \"#card-templete\", ()=>{\n      openCardPopup.open(data);\n\n    }, handleCardDelete, api);\n    return card.render();\n  }\n}, '.element__grid');\n\n\n\nfunction handleCardDelete() {\n  const removeCardPopup = new Popup('.popup_type_remove')\n  removeCardPopup.open();\n  removeCardPopup.setEventListeners();\n  document.querySelector('.popup__save_type_remove').addEventListener('click', (e) => {\n    e.preventDefault();\n    this._cardElement.remove();\n    this._cardElement = null\n    removeCardPopup.close();\n  })\n}\n\nconst addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {\n  api.setCardServer(cardData)\n    .then(data => {cardSection.addItem(data);\n    })\n    .catch((err) => {\n      console.error(err);\n    })\n\n  addCardPopup.close();\n})\n\n\naddCardPopup.setEventListeners();\n\nconst editProfilePopup = new PopupWithForm('.popup_type_profile', (data) => {\n  openPopupEdit.setUserInfo(data);\n  api.setUserInfoData(data);\n  editProfilePopup.close();\n})\n\neditProfilePopup.setEventListeners();\n\nopenEditProfilePopupButton.addEventListener(\"click\", function () {\n  formPopupProfile.reset();\n  editProfilePopup.open();\n  const data = openPopupEdit.getUserInfo();\n  nameInput.value = data.nameSelector;\n  jobInput.value = data.jobSelector;\n  profileEditFormValidator.removeValidationErrors();\n  profileEditFormValidator.toggleButtonState();\n});\n\nopenAddCardPopupButton.addEventListener(\"click\", function () {\n  formPopupAdd.reset();\n  addCardPopup.open();\n  profileAddFormValidator.removeValidationErrors();\n  profileAddFormValidator.toggleButtonState();\n});\n\n\nconst formAvatar= new PopupWithForm('.popup_type_avatar', (data) => {\n  api.changeAvatar(data)\n    .then(data => {userAvatar.setAttribute('src', data.avatar);\n    })\n    .catch((err) => {\n      console.error(err);\n    })\n  formAvatar.close();\n  })\nformAvatar.setEventListeners();\n\nopenPopupAvatar.addEventListener('click', () => {\n  formPopupAvatar.reset();\n  formAvatar.open();\n  profileAvatarFormValidator.removeValidationErrors();\n  profileAvatarFormValidator.toggleButtonState();\n})\n\n\nconst configValidator = {\n  formSelector: \".form\",\n  inputSelector: \".popup__item\",\n  submitButtonSelector: \".popup__save\",\n  inputErrorClass: \"popup__item_type_error\",\n  errorClass: \"popup__input-error_active\",\n  inputError: \"popup__input-error\"\n};\n\nconst profileEditFormValidator = new FormValidator(\n  configValidator,\n  document.querySelector('form[name=\"profile-name\"]')\n);\n\nprofileEditFormValidator.enableValidation();\n\nconst profileAddFormValidator = new FormValidator(\n  configValidator,\n  document.querySelector(\".popup__form_type_add\")\n);\n\nprofileAddFormValidator.enableValidation();\n\nconst profileAvatarFormValidator = new FormValidator(\n  configValidator,\n  document.querySelector('.popup__form_type_avatar')\n);\n\nprofileAvatarFormValidator.enableValidation();\n
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/src/pages/index.js b/src/pages/index.js
++--- a/src/pages/index.js	(revision 0e8b0128ef1974bec40fb4d15ae5baa88c0326a2)
+++++ b/src/pages/index.js	(date 1625859745828)
++@@ -36,7 +36,6 @@
++ openCardPopup.setEventListeners();
++ const openPopupEdit = new UserInfo({title, subtitle, userAvatar});
++ 
++-
++ let myUserId = null;
++ 
++ api.getUserInfoStart()
++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml
++new file mode 100644
++--- /dev/null	(date 1625859602696)
+++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml	(date 1625859602696)
++@@ -0,0 +1,4 @@
+++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]" date="1625859579193" recycled="true" deleted="true">
+++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch" />
+++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:39 [Default Changelist]" />
+++</changelist>
++\ No newline at end of file
++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch
++new file mode 100644
++--- /dev/null	(date 1625859572963)
+++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch	(date 1625859572963)
++@@ -0,0 +1,139 @@
+++Index: README.md
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/README.md b/README.md
+++--- a/README.md	(revision 57c3ab1759c5142f289ffeae79c5037321d97017)
++++++ b/README.md	(date 1625859085766)
+++@@ -12,4 +12,6 @@
+++ * Адаптивной верстки
+++ * DOM
+++ * JavaScript
++++* ООП
++++* Webpack
+++ 
+++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
+++new file mode 100644
+++--- /dev/null	(date 1625859066797)
++++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch	(date 1625859066797)
+++@@ -0,0 +1,58 @@
++++Index: README.md
++++IDEA additional info:
++++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
++++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++++<+>UTF-8
++++===================================================================
++++diff --git a/README.md b/README.md
++++--- a/README.md	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
+++++++ b/README.md	(date 1625858927507)
++++@@ -12,4 +12,6 @@
++++ * Адаптивной верстки
++++ * DOM
++++ * JavaScript
+++++* ООП
+++++* Webpack
++++ 
++++Index: .idea/workspace.xml
++++IDEA additional info:
++++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
++++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++++<+>UTF-8
++++===================================================================
++++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
++++--- a/.idea/workspace.xml	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
+++++++ b/.idea/workspace.xml	(date 1625858968992)
++++@@ -1,7 +1,10 @@
++++ <?xml version="1.0" encoding="UTF-8"?>
++++ <project version="4">
++++   <component name="ChangeListManager">
++++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
+++++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
+++++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+++++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+++++    </list>
++++     <option name="SHOW_DIALOG" value="false" />
++++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
++++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++++@@ -38,7 +41,7 @@
++++     <property name="nodejs_package_manager_path" value="npm" />
++++     <property name="vue.rearranger.settings.migration" value="true" />
++++   </component>
++++-  <component name="RunManager" selected="npm.dev (1)">
+++++  <component name="RunManager" selected="npm.build">
++++     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
++++       <package-json value="package.json" />
++++       <command value="run" />
++++@@ -81,8 +84,8 @@
++++     </configuration>
++++     <recent_temporary>
++++       <list>
++++-        <item itemvalue="npm.dev (1)" />
++++         <item itemvalue="npm.build" />
+++++        <item itemvalue="npm.dev (1)" />
++++         <item itemvalue="npm.dev" />
++++         <item itemvalue="npm.build (1)" />
++++         <item itemvalue="npm.dev (1)" />
+++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
+++new file mode 100644
+++--- /dev/null	(date 1625859167926)
++++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml	(date 1625859167926)
+++@@ -0,0 +1,4 @@
++++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]" date="1625859110680" recycled="true" deleted="true">
++++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch" />
++++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:31 [Default Changelist]" />
++++</changelist>
+++\ No newline at end of file
+++Index: .idea/workspace.xml
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/components/Api.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/Api.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/pages/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pages/index.js\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.build\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+++--- a/.idea/workspace.xml	(revision 57c3ab1759c5142f289ffeae79c5037321d97017)
++++++ b/.idea/workspace.xml	(date 1625859330475)
+++@@ -3,9 +3,7 @@
+++   <component name="ChangeListManager">
+++     <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
+++       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+++-      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" afterDir="false" />
+++-      <change beforePath="$PROJECT_DIR$/src/components/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
+++-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
++++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+++     </list>
+++     <option name="SHOW_DIALOG" value="false" />
+++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+++@@ -18,7 +16,7 @@
+++   <component name="Git.Settings">
+++     <option name="RECENT_BRANCH_BY_REPOSITORY">
+++       <map>
+++-        <entry key="$PROJECT_DIR$" value="Проектная_работа_9" />
++++        <entry key="$PROJECT_DIR$" value="navs" />
+++       </map>
+++     </option>
+++     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+++@@ -90,7 +88,7 @@
+++         <item itemvalue="npm.build" />
+++         <item itemvalue="npm.dev" />
+++         <item itemvalue="npm.build (1)" />
+++-        <item itemvalue="npm.build" />
++++        <item itemvalue="npm.dev (1)" />
+++       </list>
+++     </recent_temporary>
+++   </component>
++Index: .idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml
++new file mode 100644
++--- /dev/null	(date 1625859640934)
+++++ b/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml	(date 1625859640934)
++@@ -0,0 +1,4 @@
+++<changelist name="Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]" date="1625859610337" recycled="true" deleted="true">
+++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch" />
+++  <option name="DESCRIPTION" value="Uncommitted changes before Update at 09.07.2021, 22:40 [Default Changelist]" />
+++</changelist>
++\ No newline at end of file
++Index: .idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch
++new file mode 100644
++--- /dev/null	(date 1625859609956)
+++++ b/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch	(date 1625859609956)
++@@ -0,0 +1,133 @@
+++Index: README.md
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/README.md b/README.md
+++--- a/README.md	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
++++++ b/README.md	(date 1625859573307)
+++@@ -12,4 +12,6 @@
+++ * Адаптивной верстки
+++ * DOM
+++ * JavaScript
++++* ООП
++++* Webpack
+++ 
+++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
+++new file mode 100644
+++--- /dev/null	(date 1625859573315)
++++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch	(date 1625859573315)
+++@@ -0,0 +1,58 @@
++++Index: README.md
++++IDEA additional info:
++++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
++++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++++<+>UTF-8
++++===================================================================
++++diff --git a/README.md b/README.md
++++--- a/README.md	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
+++++++ b/README.md	(date 1625858927507)
++++@@ -12,4 +12,6 @@
++++ * Адаптивной верстки
++++ * DOM
++++ * JavaScript
+++++* ООП
+++++* Webpack
++++
++++Index: .idea/workspace.xml
++++IDEA additional info:
++++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
++++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++++<+>UTF-8
++++===================================================================
++++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
++++--- a/.idea/workspace.xml	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
+++++++ b/.idea/workspace.xml	(date 1625858968992)
++++@@ -1,7 +1,10 @@
++++ <?xml version="1.0" encoding="UTF-8"?>
++++ <project version="4">
++++   <component name="ChangeListManager">
++++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
+++++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
+++++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+++++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+++++    </list>
++++     <option name="SHOW_DIALOG" value="false" />
++++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
++++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++++@@ -38,7 +41,7 @@
++++     <property name="nodejs_package_manager_path" value="npm" />
++++     <property name="vue.rearranger.settings.migration" value="true" />
++++   </component>
++++-  <component name="RunManager" selected="npm.dev (1)">
+++++  <component name="RunManager" selected="npm.build">
++++     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
++++       <package-json value="package.json" />
++++       <command value="run" />
++++@@ -81,8 +84,8 @@
++++     </configuration>
++++     <recent_temporary>
++++       <list>
++++-        <item itemvalue="npm.dev (1)" />
++++         <item itemvalue="npm.build" />
+++++        <item itemvalue="npm.dev (1)" />
++++         <item itemvalue="npm.dev" />
++++         <item itemvalue="npm.build (1)" />
++++         <item itemvalue="npm.dev (1)" />
+++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
+++new file mode 100644
+++--- /dev/null	(date 1625859602700)
++++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml	(date 1625859602700)
+++@@ -0,0 +1,4 @@
++++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]" date="1625859110680" recycled="true" deleted="true">
++++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch" />
++++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:31 [Default Changelist]" />
++++</changelist>
+++\ No newline at end of file
+++Index: .idea/workspace.xml
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+++--- a/.idea/workspace.xml	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
++++++ b/.idea/workspace.xml	(date 1625859602730)
+++@@ -1,7 +1,12 @@
+++ <?xml version="1.0" encoding="UTF-8"?>
+++ <project version="4">
+++   <component name="ChangeListManager">
+++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
++++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
++++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++++      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" afterDir="false" />
++++      <change beforePath="$PROJECT_DIR$/src/components/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
++++      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
++++    </list>
+++     <option name="SHOW_DIALOG" value="false" />
+++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+++@@ -85,7 +90,7 @@
+++         <item itemvalue="npm.build" />
+++         <item itemvalue="npm.dev" />
+++         <item itemvalue="npm.build (1)" />
+++-        <item itemvalue="npm.dev (1)" />
++++        <item itemvalue="npm.build" />
+++       </list>
+++     </recent_temporary>
+++   </component>
++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
++new file mode 100644
++--- /dev/null	(date 1625859640938)
+++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml	(date 1625859640938)
++@@ -0,0 +1,4 @@
+++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]" date="1625859110680" recycled="true" deleted="true">
+++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch" />
+++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:31 [Default Changelist]" />
+++</changelist>
++\ No newline at end of file
++Index: .idea/workspace.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
++--- a/.idea/workspace.xml	(revision 0e8b0128ef1974bec40fb4d15ae5baa88c0326a2)
+++++ b/.idea/workspace.xml	(date 1625860313175)
++@@ -1,7 +1,17 @@
++ <?xml version="1.0" encoding="UTF-8"?>
++ <project version="4">
++   <component name="ChangeListManager">
++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
+++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
+++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch" afterDir="false" />
+++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch" afterDir="false" />
+++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml" afterDir="false" />
+++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml" afterDir="false" />
+++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch" afterDir="false" />
+++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+++    </list>
++     <option name="SHOW_DIALOG" value="false" />
++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++@@ -85,7 +95,7 @@
++         <item itemvalue="npm.build" />
++         <item itemvalue="npm.dev" />
++         <item itemvalue="npm.build (1)" />
++-        <item itemvalue="npm.dev (1)" />
+++        <item itemvalue="npm.build" />
++       </list>
++     </recent_temporary>
++   </component>
++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
++new file mode 100644
++--- /dev/null	(date 1625859610217)
+++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch	(date 1625859610217)
++@@ -0,0 +1,58 @@
+++Index: README.md
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/README.md b/README.md
+++--- a/README.md	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
++++++ b/README.md	(date 1625858927507)
+++@@ -12,4 +12,6 @@
+++ * Адаптивной верстки
+++ * DOM
+++ * JavaScript
++++* ООП
++++* Webpack
+++
+++Index: .idea/workspace.xml
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+++--- a/.idea/workspace.xml	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
++++++ b/.idea/workspace.xml	(date 1625858968992)
+++@@ -1,7 +1,10 @@
+++ <?xml version="1.0" encoding="UTF-8"?>
+++ <project version="4">
+++   <component name="ChangeListManager">
+++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
++++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
++++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
++++    </list>
+++     <option name="SHOW_DIALOG" value="false" />
+++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+++@@ -38,7 +41,7 @@
+++     <property name="nodejs_package_manager_path" value="npm" />
+++     <property name="vue.rearranger.settings.migration" value="true" />
+++   </component>
+++-  <component name="RunManager" selected="npm.dev (1)">
++++  <component name="RunManager" selected="npm.build">
+++     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+++       <package-json value="package.json" />
+++       <command value="run" />
+++@@ -81,8 +84,8 @@
+++     </configuration>
+++     <recent_temporary>
+++       <list>
+++-        <item itemvalue="npm.dev (1)" />
+++         <item itemvalue="npm.build" />
++++        <item itemvalue="npm.dev (1)" />
+++         <item itemvalue="npm.dev" />
+++         <item itemvalue="npm.build (1)" />
+++         <item itemvalue="npm.dev (1)" />
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/components/Api.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/Api.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/pages/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pages/index.js\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.build\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 57c3ab1759c5142f289ffeae79c5037321d97017)
++++ b/.idea/workspace.xml	(date 1625860880217)
+@@ -2,9 +2,14 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_39_[Default_Changelist]/shelved.patch" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_39__Default_Changelist_.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021__22_40__Default_Changelist_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -18,7 +23,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="Проектная_работа_9" />
++        <entry key="$PROJECT_DIR$" value="main" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -87,10 +92,10 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="npm.dev (1)" />
+-        <item itemvalue="npm.build" />
+         <item itemvalue="npm.dev" />
+         <item itemvalue="npm.build (1)" />
+         <item itemvalue="npm.build" />
++        <item itemvalue="npm.dev (1)" />
+       </list>
+     </recent_temporary>
+   </component>
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
+new file mode 100644
+--- /dev/null	(date 1625860768493)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch	(date 1625860768493)
+@@ -0,0 +1,58 @@
++Index: README.md
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/README.md b/README.md
++--- a/README.md	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
+++++ b/README.md	(date 1625858927507)
++@@ -12,4 +12,6 @@
++ * Адаптивной верстки
++ * DOM
++ * JavaScript
+++* ООП
+++* Webpack
++
++Index: .idea/workspace.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
++--- a/.idea/workspace.xml	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
+++++ b/.idea/workspace.xml	(date 1625858968992)
++@@ -1,7 +1,10 @@
++ <?xml version="1.0" encoding="UTF-8"?>
++ <project version="4">
++   <component name="ChangeListManager">
++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
+++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
+++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+++    </list>
++     <option name="SHOW_DIALOG" value="false" />
++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++@@ -38,7 +41,7 @@
++     <property name="nodejs_package_manager_path" value="npm" />
++     <property name="vue.rearranger.settings.migration" value="true" />
++   </component>
++-  <component name="RunManager" selected="npm.dev (1)">
+++  <component name="RunManager" selected="npm.build">
++     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
++       <package-json value="package.json" />
++       <command value="run" />
++@@ -81,8 +84,8 @@
++     </configuration>
++     <recent_temporary>
++       <list>
++-        <item itemvalue="npm.dev (1)" />
++         <item itemvalue="npm.build" />
+++        <item itemvalue="npm.dev (1)" />
++         <item itemvalue="npm.dev" />
++         <item itemvalue="npm.build (1)" />
++         <item itemvalue="npm.dev (1)" />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch
+new file mode 100644
+--- /dev/null	(date 1625860761162)
++++ b/.idea/shelf/Uncommitted_changes_before_Update_at_09_07_2021,_22_40_[Default_Changelist]/shelved.patch	(date 1625860761162)
+@@ -0,0 +1,133 @@
++Index: README.md
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/README.md b/README.md
++--- a/README.md	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
+++++ b/README.md	(date 1625859573307)
++@@ -12,4 +12,6 @@
++ * Адаптивной верстки
++ * DOM
++ * JavaScript
+++* ООП
+++* Webpack
++
++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch
++new file mode 100644
++--- /dev/null	(date 1625859573315)
+++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch	(date 1625859573315)
++@@ -0,0 +1,58 @@
+++Index: README.md
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+># Проект 4: Место\n\n### Ссылка на проект\n\nhttps://glazkovpavel.github.io/mesto/\n\n\n# В этом проекте использовались технологии:\n\n* Grid Layout\n* Медиазапросы\n* Адаптивной верстки\n* DOM\n* JavaScript\n\n
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/README.md b/README.md
+++--- a/README.md	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
++++++ b/README.md	(date 1625858927507)
+++@@ -12,4 +12,6 @@
+++ * Адаптивной верстки
+++ * DOM
+++ * JavaScript
++++* ООП
++++* Webpack
+++
+++Index: .idea/workspace.xml
+++IDEA additional info:
+++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
+++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+++<+>UTF-8
+++===================================================================
+++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+++--- a/.idea/workspace.xml	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
++++++ b/.idea/workspace.xml	(date 1625858968992)
+++@@ -1,7 +1,10 @@
+++ <?xml version="1.0" encoding="UTF-8"?>
+++ <project version="4">
+++   <component name="ChangeListManager">
+++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
++++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
++++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
++++    </list>
+++     <option name="SHOW_DIALOG" value="false" />
+++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+++@@ -38,7 +41,7 @@
+++     <property name="nodejs_package_manager_path" value="npm" />
+++     <property name="vue.rearranger.settings.migration" value="true" />
+++   </component>
+++-  <component name="RunManager" selected="npm.dev (1)">
++++  <component name="RunManager" selected="npm.build">
+++     <configuration name="build (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+++       <package-json value="package.json" />
+++       <command value="run" />
+++@@ -81,8 +84,8 @@
+++     </configuration>
+++     <recent_temporary>
+++       <list>
+++-        <item itemvalue="npm.dev (1)" />
+++         <item itemvalue="npm.build" />
++++        <item itemvalue="npm.dev (1)" />
+++         <item itemvalue="npm.dev" />
+++         <item itemvalue="npm.build (1)" />
+++         <item itemvalue="npm.dev (1)" />
++Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
++new file mode 100644
++--- /dev/null	(date 1625859602700)
+++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml	(date 1625859602700)
++@@ -0,0 +1,4 @@
+++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]" date="1625859110680" recycled="true" deleted="true">
+++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch" />
+++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:31 [Default Changelist]" />
+++</changelist>
++\ No newline at end of file
++Index: .idea/workspace.xml
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
++<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"EditorConfigPreviewManager\">\n    <editorConfig file=\"$PROJECT_DIR$/.editorconfig\" previewFile=\"$PROJECT_DIR$/webpack.config.js\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Проектная_работа_9\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/index.html\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/pages/index.css\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1un5lnCMZqTMVyHn6mH16fBa0l9\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_MARK_IGNORED_FILES_AS_EXCLUDED\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev (1)\">\n    <configuration name=\"build (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"build\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"build\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev (1)\" />\n        <item itemvalue=\"npm.build\" />\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.build (1)\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ed155d29-72da-452c-99b6-9f73566f3a8e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1625288675102</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1625288675102</updated>\n      <workItem from=\"1625288681222\" duration=\"370000\" />\n      <workItem from=\"1625298687482\" duration=\"824000\" />\n      <workItem from=\"1625303582573\" duration=\"34544000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n</project>
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++diff --git a/.idea/workspace.xml b/.idea/workspace.xml
++--- a/.idea/workspace.xml	(revision a1d263423cdf8af9177bb1aabd2fa7700168aff6)
+++++ b/.idea/workspace.xml	(date 1625859602730)
++@@ -1,7 +1,12 @@
++ <?xml version="1.0" encoding="UTF-8"?>
++ <project version="4">
++   <component name="ChangeListManager">
++-    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="" />
+++    <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
+++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__foto/profile__foto.css" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/src/components/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
+++      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+++    </list>
++     <option name="SHOW_DIALOG" value="false" />
++     <option name="HIGHLIGHT_CONFLICTS" value="true" />
++     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++@@ -85,7 +90,7 @@
++         <item itemvalue="npm.build" />
++         <item itemvalue="npm.dev" />
++         <item itemvalue="npm.build (1)" />
++-        <item itemvalue="npm.dev (1)" />
+++        <item itemvalue="npm.build" />
++       </list>
++     </recent_temporary>
++   </component>
+Index: src/pages/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import './index.css';\nimport { Card } from \"../components/Card.js\";\nimport { FormValidator } from \"../components/FormValidator.js\";\nimport Section from \"../components/Section.js\";\nimport Popup from \"../components/Popup.js\";\nimport {\n  openEditProfilePopupButton,\n  openAddCardPopupButton,\n  popupAddCard,\n  popupEditProfile,\n  formPopupProfile,\n  formPopupAdd,\n  formPopupAvatar,\n  nameInput,\n  jobInput,\n  userAvatar,\n  title,\n  subtitle,\n  popupAvatar,\n  openPopupAvatar,\n} from \"../script/data.js\";\nimport PopupWithForm from \"../components/PopupWithForm.js\";\nimport PopupWithImage from \"../components/PopupWithImage.js\";\nimport UserInfo from \"../components/UserInfo.js\";\nimport Api from \"../components/Api.js\"\n\n\nconst api = new Api({\n  url: 'https://mesto.nomoreparties.co/v1/cohort-25',\n  headers: {\n    authorization: 'df3e4aab-6899-4784-852c-de3c6ef6b3bc',\n    'Content-Type': 'application/json'\n  }\n});\n\nconst openCardPopup = new PopupWithImage('.popup_type_preview');\nopenCardPopup.setEventListeners();\nconst openPopupEdit = new UserInfo({title, subtitle, userAvatar});\n\n\nlet myUserId = null;\n\napi.getUserInfoStart()\n  .then(data => {\n    myUserId = data._id;\n    title.textContent = data.name;\n    subtitle.textContent = data.about;\n    openPopupEdit.setUserAvatar(data);\n  })\n  .then(() => {\n    api.getInitialCards()\n      .then(data => {\n        cardSection.rendererAll(data);\n      })\n      .catch((err) => {\n        console.log(err); // выведем ошибку в консоль\n      });\n  })\n  .catch((err) => {\n    console.log(err); // выведем ошибку в консоль\n  });\n\nconst cardSection = new Section({\n  renderer: (data) => {\n    const card = new Card({\n      data: {...data, myUserId}\n    }, \"#card-templete\", ()=>{\n      openCardPopup.open(data);\n\n    }, handleCardDelete, api);\n    return card.render();\n  }\n}, '.element__grid');\n\n\n\nfunction handleCardDelete() {\n  const removeCardPopup = new Popup('.popup_type_remove')\n  removeCardPopup.open();\n  removeCardPopup.setEventListeners();\n  document.querySelector('.popup__save_type_remove').addEventListener('click', (e) => {\n    e.preventDefault();\n    this._cardElement.remove();\n    this._cardElement = null\n    removeCardPopup.close();\n  })\n}\n\nconst addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {\n  api.setCardServer(cardData)\n    .then(data => {cardSection.addItem(data);\n    })\n    .catch((err) => {\n      console.error(err);\n    })\n\n  addCardPopup.close();\n})\n\n\naddCardPopup.setEventListeners();\n\nconst editProfilePopup = new PopupWithForm('.popup_type_profile', (data) => {\n  openPopupEdit.setUserInfo(data);\n  api.setUserInfoData(data);\n  editProfilePopup.close();\n})\n\neditProfilePopup.setEventListeners();\n\nopenEditProfilePopupButton.addEventListener(\"click\", function () {\n  formPopupProfile.reset();\n  editProfilePopup.open();\n  const data = openPopupEdit.getUserInfo();\n  nameInput.value = data.nameSelector;\n  jobInput.value = data.jobSelector;\n  profileEditFormValidator.removeValidationErrors();\n  profileEditFormValidator.toggleButtonState();\n});\n\nopenAddCardPopupButton.addEventListener(\"click\", function () {\n  formPopupAdd.reset();\n  addCardPopup.open();\n  profileAddFormValidator.removeValidationErrors();\n  profileAddFormValidator.toggleButtonState();\n});\n\n\nconst formAvatar= new PopupWithForm('.popup_type_avatar', (data) => {\n  api.changeAvatar(data)\n    .then(data => {userAvatar.setAttribute('src', data.avatar);\n    })\n    .catch((err) => {\n      console.error(err);\n    })\n  formAvatar.close();\n  })\nformAvatar.setEventListeners();\n\nopenPopupAvatar.addEventListener('click', () => {\n  formPopupAvatar.reset();\n  formAvatar.open();\n  profileAvatarFormValidator.removeValidationErrors();\n  profileAvatarFormValidator.toggleButtonState();\n})\n\n\nconst configValidator = {\n  formSelector: \".form\",\n  inputSelector: \".popup__item\",\n  submitButtonSelector: \".popup__save\",\n  inputErrorClass: \"popup__item_type_error\",\n  errorClass: \"popup__input-error_active\",\n  inputError: \"popup__input-error\"\n};\n\nconst profileEditFormValidator = new FormValidator(\n  configValidator,\n  document.querySelector('form[name=\"profile-name\"]')\n);\n\nprofileEditFormValidator.enableValidation();\n\nconst profileAddFormValidator = new FormValidator(\n  configValidator,\n  document.querySelector(\".popup__form_type_add\")\n);\n\nprofileAddFormValidator.enableValidation();\n\nconst profileAvatarFormValidator = new FormValidator(\n  configValidator,\n  document.querySelector('.popup__form_type_avatar')\n);\n\nprofileAvatarFormValidator.enableValidation();\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/index.js b/src/pages/index.js
+--- a/src/pages/index.js	(revision 57c3ab1759c5142f289ffeae79c5037321d97017)
++++ b/src/pages/index.js	(date 1625860761070)
+@@ -37,7 +37,6 @@
+ openCardPopup.setEventListeners();
+ const openPopupEdit = new UserInfo({title, subtitle, userAvatar});
+ 
+-
+ let myUserId = null;
+ 
+ api.getUserInfoStart()
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml
+new file mode 100644
+--- /dev/null	(date 1625860880103)
++++ b/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021__22_31__Default_Changelist_.xml	(date 1625860880103)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]" date="1625859110680" recycled="true" deleted="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_07_2021,_22_31_[Default_Changelist]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 09.07.2021, 22:31 [Default Changelist]" />
++</changelist>
+\ No newline at end of file

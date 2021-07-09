@@ -36,7 +36,6 @@ const openCardPopup = new PopupWithImage('.popup_type_preview');
 openCardPopup.setEventListeners();
 const openPopupEdit = new UserInfo({title, subtitle, userAvatar});
 
-
 let myUserId = null;
 
 api.getUserInfoStart()
