@@ -2,7 +2,7 @@ import './index.css';
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import Popup from "../components/Popup.js";
+import PopupWithSubmit from "../components/PopupWithSubmit.js";
 import {
   openEditProfilePopupButton,
   openAddCardPopupButton,
@@ -72,16 +72,28 @@ const cardSection = new Section({
 
 
 
-function handleCardDelete() {
-  const removeCardPopup = new Popup('.popup_type_remove')
+function handleCardDelete(cardId) {
+  const removeCardPopup = new PopupWithSubmit('.popup_type_remove')
   removeCardPopup.open();
   removeCardPopup.setEventListeners();
-  document.querySelector('.popup__save_type_remove').addEventListener('click', (e) => {
-    e.preventDefault();
-    this._cardElement.remove();
-    this._cardElement = null
-    removeCardPopup.close();
+  removeCardPopup.setSubmitAction(() => {
+    api.deleteCard(cardId)
+      .then(() => {
+        this._cardElement.remove();
+        this._cardElement = null;
+        removeCardPopup.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   })
+
+  // document.querySelector('.popup__save_type_remove').addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   this._cardElement.remove();
+  //   this._cardElement = null
+  //   removeCardPopup.close();
+  // })
 }
 
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {

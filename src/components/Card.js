@@ -21,7 +21,7 @@ export class Card {
     this._trashButton = this._cardElement.querySelector('.element__trash');
     this._likeButton = this._cardElement.querySelector('.element__description-like');
     this._previewImg = this._cardElement.querySelector('.element__foto');
-    this._trashButton.addEventListener('click', () => this.handleRemoveClick())
+    this._trashButton.addEventListener('click', () => this.handleRemoveClick(this._id))
     this._likeButton.addEventListener('click', () => this._handleLikeClick())
     this._previewImg.addEventListener('click', () => this.handleCardClick())
   }
@@ -51,6 +51,7 @@ export class Card {
     }
   })
   }
+
 
 
   render() {                                                                         //card drawing
