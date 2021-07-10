@@ -6,8 +6,12 @@
   line-height: 16px;
   justify-self: center;
   height: 13px;
-  width: 10px;
+  max-width: 26px;
   padding-right: 18px;
-  margin: auto;
+  margin: 3px auto 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
 
 }
