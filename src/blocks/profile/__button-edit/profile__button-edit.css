@@ -21,7 +21,7 @@
 @media screen and (max-width: 575px) {
   .profile__button-edit {
     align-self: flex-end;
-    background-image: url(../../../images/Edit_Button\(2\).png);
+    background-image: url(../../../images/edit_button.png);
     width: 18px;
     height: 18px;
     margin-right: 68px;
