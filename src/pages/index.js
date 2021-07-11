@@ -70,7 +70,6 @@ const cardSection = new Section({
   }
 }, '.element__grid');
 
-
 function handleCardDelete(cardId) {
   const removeCardPopup = new PopupWithSubmit('.popup_type_remove')
   removeCardPopup.open();
