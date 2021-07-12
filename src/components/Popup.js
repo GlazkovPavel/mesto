@@ -1,10 +1,10 @@
-
+import {escape} from '../script/data.js';
 export default class Popup {
   constructor(popupSelector) {
     this.popupElement = document.querySelector(popupSelector);
   }
   _handleEscClose = (evt) => {
-    if (evt.key === "Escape") {
+    if (evt.key === escape) {
       this.close();
     }}
 

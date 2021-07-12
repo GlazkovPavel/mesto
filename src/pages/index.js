@@ -111,7 +111,7 @@ function handleLikeClick(){                                                     
 
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
   api.setCardServer(cardData)
-    .then(data => {cardSection.addItem(data);
+    .then(data => {cardSection.addItem(data, true);
     })
     .catch((err) => {
       console.error(err);
