@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed155d29-72da-452c-99b6-9f73566f3a8e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/blocks/element/__foto-container/element__foto-container.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/element/__container/element__container.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/element/__container/element__container.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/element/__description/element__description.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/element/__description/element__description.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/element/__foto/element__foto.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/element/__foto/element__foto.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/element/__trash/element__trash.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/element/__trash/element__trash.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/script/data.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,9 +89,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev (1)" />
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.build (1)" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.dev (1)" />
       </list>
     </recent_temporary>

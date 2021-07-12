@@ -65,7 +65,7 @@ const cardSection = new Section({
     }, "#card-templete", ()=>{
       openCardPopup.open(data);
 
-    }, handleCardDelete, api);
+    }, handleCardDelete, handleLikeClick, api);
     return card.render();
   }
 }, '.element__grid');
@@ -85,13 +85,28 @@ function handleCardDelete(cardId) {
         console.error(err);
       });
   })
+}
 
-  // document.querySelector('.popup__save_type_remove').addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   this._cardElement.remove();
-  //   this._cardElement = null
-  //   removeCardPopup.close();
-  // })
+function handleLikeClick(){                                                              //like function
+  if(this._likeButton.classList.contains('element__description-like_active')){
+    this._api.deleteLike(this._id)
+      .then((data) => {
+        this._likeButton.classList.remove('element__description-like_active');
+        this._cardElement.querySelector('.element__likes').textContent = data.likes.length;
+      })
+      .catch((err) => {
+        console.log(err); // выведем ошибку в консоль
+      });
+  }else{
+    this._api.putLike(this._id)
+      .then((data) => {
+        this._likeButton.classList.add('element__description-like_active');
+        this._cardElement.querySelector('.element__likes').textContent = data.likes.length;
+      })
+      .catch((err) => {
+        console.log(err); // выведем ошибку в консоль
+      });
+  }
 }
 
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {

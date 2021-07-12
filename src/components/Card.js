@@ -1,5 +1,5 @@
 export class Card {
-  constructor({data}, templateSelector, handleCardClick, handleRemoveClick, api) {
+  constructor({data}, templateSelector, handleCardClick, handleRemoveClick, handleLikeClick, api) {
     this._data = data;
     this._title = data.name;
     this._link = data.link;
@@ -9,6 +9,7 @@ export class Card {
     this._templateSelector = templateSelector;
     this.handleCardClick = handleCardClick;
     this.handleRemoveClick = handleRemoveClick;
+    this.handleLikeClick = handleLikeClick;
     this._api = api;
   }
   _makeElements(){
@@ -22,26 +23,8 @@ export class Card {
     this._likeButton = this._cardElement.querySelector('.element__description-like');
     this._previewImg = this._cardElement.querySelector('.element__foto');
     this._trashButton.addEventListener('click', () => this.handleRemoveClick(this._id))
-    this._likeButton.addEventListener('click', () => this._handleLikeClick())
+    this._likeButton.addEventListener('click', () => this.handleLikeClick())
     this._previewImg.addEventListener('click', () => this.handleCardClick())
-  }
-  _handleLikeClick(){                                                              //like function
-    if(this._likeButton.classList.contains('element__description-like_active')){
-      this._api.deleteLike(this._id)
-        .then((data) => {
-          this._likeButton.classList.remove('element__description-like_active');
-          this._cardElement.querySelector('.element__likes').textContent = data.likes.length;
-        })
-    }else{
-      this._api.putLike(this._id)
-        .then((data) => {
-          this._likeButton.classList.add('element__description-like_active');
-          this._cardElement.querySelector('.element__likes').textContent = data.likes.length;
-        })
-        .catch((err) => {
-          console.log(err); // выведем ошибку в консоль
-        });
-    }
   }
 
   _checkMyLike(){                                                                    //checking my like
