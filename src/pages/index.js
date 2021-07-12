@@ -112,21 +112,21 @@ function handleLikeClick(){                                                     
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
   api.setCardServer(cardData)
     .then(data => {cardSection.addItem(data, true);
+      addCardPopup.close();
     })
     .catch((err) => {
       console.error(err);
     })
-
-  addCardPopup.close();
 })
-
 
 addCardPopup.setEventListeners();
 
 const editProfilePopup = new PopupWithForm('.popup_type_profile', (data) => {
-  openPopupEdit.setUserInfo(data);
-  api.setUserInfoData(data);
-  editProfilePopup.close();
+  api.setUserInfoData(data)
+    .then(() => {
+      openPopupEdit.setUserInfo(data);
+      editProfilePopup.close();
+    })
 })
 
 editProfilePopup.setEventListeners();
@@ -152,11 +152,11 @@ openAddCardPopupButton.addEventListener("click", function () {
 const formAvatar= new PopupWithForm('.popup_type_avatar', (data) => {
   api.changeAvatar(data)
     .then(data => {userAvatar.setAttribute('src', data.avatar);
+      formAvatar.close();
     })
     .catch((err) => {
       console.error(err);
     })
-  formAvatar.close();
   })
 formAvatar.setEventListeners();
 
