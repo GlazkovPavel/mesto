@@ -39,6 +39,7 @@ export class FormValidator {
   toggleButtonState() {
     if (this._hasInvalidInput(this._inputList)) {
       this._buttonElement.setAttribute("disabled", true);
+
     } else {
       this._buttonElement.removeAttribute("disabled");
     }

@@ -16,6 +16,7 @@ import {
   userAvatar,
   title,
   subtitle,
+  saveButton,
   popupAvatar,
   openPopupAvatar,
 } from "../script/data.js";
@@ -110,6 +111,7 @@ function handleLikeClick(){                                                     
 }
 
 const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
+  addCardPopup.renderLoading(true);
   api.setCardServer(cardData)
     .then(data => {cardSection.addItem(data, true);
       addCardPopup.close();
@@ -117,15 +119,26 @@ const addCardPopup = new PopupWithForm('.popup_type_add', (cardData) => {
     .catch((err) => {
       console.error(err);
     })
+    .finally(() => {
+      addCardPopup.renderLoading(false);
+    })
+
 })
 
 addCardPopup.setEventListeners();
 
 const editProfilePopup = new PopupWithForm('.popup_type_profile', (data) => {
+  editProfilePopup.renderLoading(true);
   api.setUserInfoData(data)
     .then(() => {
       openPopupEdit.setUserInfo(data);
       editProfilePopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      editProfilePopup.renderLoading(false);
     })
 })
 
@@ -149,13 +162,17 @@ openAddCardPopupButton.addEventListener("click", function () {
 });
 
 
-const formAvatar= new PopupWithForm('.popup_type_avatar', (data) => {
+const formAvatar = new PopupWithForm('.popup_type_avatar', (data) => {
+  formAvatar.renderLoading(true);
   api.changeAvatar(data)
     .then(data => {userAvatar.setAttribute('src', data.avatar);
       formAvatar.close();
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      formAvatar.renderLoading(false);
     })
   })
 formAvatar.setEventListeners();
@@ -166,7 +183,6 @@ openPopupAvatar.addEventListener('click', () => {
   profileAvatarFormValidator.removeValidationErrors();
   profileAvatarFormValidator.toggleButtonState();
 })
-
 
 const configValidator = {
   formSelector: ".form",
