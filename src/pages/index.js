@@ -37,6 +37,9 @@ const openCardPopup = new PopupWithImage('.popup_type_preview');
 openCardPopup.setEventListeners();
 const openPopupEdit = new UserInfo({title, subtitle, userAvatar});
 
+const removeCardPopup = new PopupWithSubmit('.popup_type_remove')
+removeCardPopup.setEventListeners();
+
 let myUserId = null;
 
 api.getUserInfoStart()
@@ -72,9 +75,7 @@ const cardSection = new Section({
 }, '.element__grid');
 
 function handleCardDelete(cardId) {
-  const removeCardPopup = new PopupWithSubmit('.popup_type_remove')
   removeCardPopup.open();
-  removeCardPopup.setEventListeners();
   removeCardPopup.setSubmitAction(() => {
     api.deleteCard(cardId)
       .then(() => {
