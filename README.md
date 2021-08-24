@@ -22,7 +22,6 @@ UX-улучшения
 * CSS3
 * JavaScript
 * Адаптивная верстка (flex, grid)
-* React
 * Методология БЭМ 
 * API
 * ООП
